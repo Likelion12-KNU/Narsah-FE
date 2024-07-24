@@ -1,0 +1,160 @@
+.searchPage {
+    width: 100%;
+}
+
+.searchPage>.yellow {
+    width: 100%;
+    height: 420px;
+    background: linear-gradient(180deg, #FFB22C 0%, #FFDE4D 100%);
+    position: relative;
+}
+
+.searchPage>.yellow>.title {
+    padding-left: 50px;
+    padding-top: 20px;
+    display: block;
+}
+
+.searchPage>.yellow>.title>img {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.searchPage>.yellow>.title>a {
+    display: inline-block;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 55px;
+    align-items: center;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.searchPage>.yellow>.searchFrom {
+    width: 65%;
+    margin-left: 7%;
+    height: 300px;
+    display: inline-block;
+    /* background-color: white; */
+}
+
+.searchPage>.yellow>.searchFrom>p {
+    display: block;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 55px;
+    align-items: center;
+    letter-spacing: -0.01em;
+    color: #F3FEB8;
+}
+
+.searchPage>.yellow>.searchFrom>form {
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    border-radius: 50px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchPage>.yellow>.searchFrom>form>input {
+    width: 80%;
+    display: inline-flexbox;
+    box-sizing: border-box;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 5px;
+}
+
+.searchPage>.yellow>.searchFrom>form>button {
+    display: inline-flexbox;
+    box-sizing: border-box;
+    height: 60px;
+    background-color: #FFB22C;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    width: 17%;
+    color: white;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6vw;
+    line-height: 55px;
+    align-items: center;
+    letter-spacing: -0.01em;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.searchPage>.yellow>.nav {
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.searchPage>.yellow>.nav>.navElement {
+    z-index: 1000;
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    line-height: 100px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.searchPage>.yellow>.nav>.navElement:nth-child(1) {
+    background-color: #F3FEB8;
+    color: #FFB22C;
+}
+
+.searchPage>.yellow>.nav>.navElement:nth-child(2) {
+    background-color: #FFDE4D;
+    color: white;
+}
+
+.searchPage>.yellow>.nav>.navElement:nth-child(3) {
+    background-color: #FFB22C;
+    color: #F3FEB8;
+}
+
+.searchPage>.yellow>.yellowLine {
+    z-index: 500;
+    width: 2px;
+    height: 200px;
+    background-color: #F3FEB8;
+    position: absolute;
+    top: 0px;
+    right: 69px;
+}
+
+.searchPage>.yellow>.orangeLine {
+    z-index: 500;
+    width: 2px;
+    height: 200px;
+    background-color: #FFB22C;
+    position: absolute;
+    bottom: 0px;
+    right: 69px;
+}
