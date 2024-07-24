@@ -8,6 +8,7 @@ import MainPage from './pages/MainPage'
 import LogInPage from './pages/LogInPage'
 import SignUpPage from './pages/SignUpPage'
 import UserPage from './pages/UserPage'
+import PostPage from './pages/PostPage'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
             <Route path='/login' element={<LogInPage/>}/>
             <Route path='/signup' element={<SignUpPage/>}/>
             <Route path='/user' element={<UserPage/>}/>
+            <Route path='/jobOpening/post' element={<PostPage/>}/>
           </Routes>
           </div>
       </Router>
