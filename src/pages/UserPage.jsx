@@ -6,7 +6,9 @@ function UserPage() {
     return (
         <div className='userPage'>
             <Bar/>
-            사용자
+            <div className='content'>
+                사용자
+            </div>
         </div>
     );
 };

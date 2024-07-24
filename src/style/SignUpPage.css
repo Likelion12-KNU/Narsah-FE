@@ -2,16 +2,8 @@
     margin-top: 100px;
 }
 
-.signupPage>.signupContent {
-    box-sizing: border-box;
-    margin-left: 100px;
-    margin-right: 100px;
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-}
 
-.signupPage>.signupContent>.signupForm {
+.signupPage>.content>.signupForm {
     display: block;
     width: 400px;
     background-color: #FFB22C;
@@ -21,7 +13,7 @@
     text-align: center;
 }
 
-.signupPage>.signupContent>.signupForm>h1 {
+.signupPage>.content>.signupForm>h1 {
     display: block;
     text-align: center;
     font-family: 'Pretendard';
@@ -31,8 +23,8 @@
     color: white;
 }
 
-.signupPage>.signupContent>.signupForm>input,
-.signupPage>.signupContent>.signupForm>button {
+.signupPage>.content>.signupForm>input,
+.signupPage>.content>.signupForm>button {
     box-sizing: border-box;
     display: block;
     margin-top: 10px;
@@ -47,7 +39,7 @@
     margin-top: 30px;
 }
 
-.signupPage>.signupContent>.signupForm>input {
+.signupPage>.content>.signupForm>input {
     height: 50px;
     padding-left: 20px;
     color: black;
@@ -57,11 +49,11 @@
     font-size: 15px;
 }
 
-.signupPage>.signupContent>.signupForm>input::placeholder {
+.signupPage>.content>.signupForm>input::placeholder {
     color: #FFB22C;
 }
 
-.signupPage>.signupContent>.signupForm>button {
+.signupPage>.content>.signupForm>button {
     height: 70px;
     color: #FFB22C;
     font-family: 'Pretendard';
@@ -70,11 +62,11 @@
     font-size: 20px;
 }
 
-.signupPage>.signupContent>.signupForm>a, .signupPage>.signupContent>.signupForm>p {
+.signupPage>.content>.signupForm>a, .signupPage>.content>.signupForm>p {
     display: inline;
 }
 
-.signupPage>.signupContent>.signupForm>a {
+.signupPage>.content>.signupForm>a {
     text-decoration: none;
     color: white;
 }

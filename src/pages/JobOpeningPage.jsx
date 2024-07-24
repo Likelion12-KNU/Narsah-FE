@@ -8,7 +8,7 @@ function JobOpeningPage() {
   return (
     <div className='jobOpeningPage'>
       <Bar />
-      <div className='jobOpeningContent'>
+      <div className='content'>
         구인 게시판
       </div>
     </div>

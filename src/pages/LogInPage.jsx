@@ -7,7 +7,7 @@ function LogInPage() {
     return (
         <div className='loginPage'>
             <Bar />
-            <div className='loginContent'>
+            <div className='content'>
                 <form className='loginForm'>
                     <h1>LOG IN</h1>
                     <input type='text' placeholder='ID'/>

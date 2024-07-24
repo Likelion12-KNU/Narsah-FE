@@ -7,7 +7,7 @@ function SignUpPage() {
     return (
         <div className='signupPage'>
             <Bar />
-            <div className='signupContent'>
+            <div className='content'>
                 <form className='signupForm'>
                     <h1>SIGN UP</h1>
                     <input type='text' placeholder='ID'/>

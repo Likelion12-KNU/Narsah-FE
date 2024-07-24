@@ -3,3 +3,13 @@
     font-family: "Pretendard";
     box-sizing: border-box;
 }
+
+.content {
+    margin-top: 100px;
+    box-sizing: border-box;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}

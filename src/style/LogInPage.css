@@ -2,16 +2,7 @@
     margin-top: 100px;
 }
 
-.loginPage>.loginContent {
-    box-sizing: border-box;
-    margin-left: 100px;
-    margin-right: 100px;
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-}
-
-.loginPage>.loginContent>.loginForm {
+.loginPage>.content>.loginForm {
     display: block;
     width: 400px;
     background-color: #FFB22C;
@@ -21,7 +12,7 @@
     text-align: center;
 }
 
-.loginPage>.loginContent>.loginForm>h1 {
+.loginPage>.content>.loginForm>h1 {
     display: block;
     text-align: center;
     font-family: 'Pretendard';
@@ -31,8 +22,8 @@
     color: white;
 }
 
-.loginPage>.loginContent>.loginForm>input,
-.loginPage>.loginContent>.loginForm>button {
+.loginPage>.content>.loginForm>input,
+.loginPage>.content>.loginForm>button {
     box-sizing: border-box;
     display: block;
     margin-top: 10px;
@@ -47,7 +38,7 @@
     margin-top: 30px;
 }
 
-.loginPage>.loginContent>.loginForm>input {
+.loginPage>.content>.loginForm>input {
     height: 50px;
     padding-left: 20px;
     color: black;
@@ -57,11 +48,11 @@
     font-size: 15px;
 }
 
-.loginPage>.loginContent>.loginForm>input::placeholder {
+.loginPage>.content>.loginForm>input::placeholder {
     color: #FFB22C;
 }
 
-.loginPage>.loginContent>.loginForm>button {
+.loginPage>.content>.loginForm>button {
     height: 70px;
     color: #FFB22C;
     font-family: 'Pretendard';
@@ -70,11 +61,11 @@
     font-size: 20px;
 }
 
-.loginPage>.loginContent>.loginForm>a, .loginPage>.loginContent>.loginForm>p {
+.loginPage>.content>.loginForm>a, .loginPage>.content>.loginForm>p {
     display: inline;
 }
 
-.loginPage>.loginContent>.loginForm>a {
+.loginPage>.content>.loginForm>a {
     text-decoration: none;
     color: white;
 }

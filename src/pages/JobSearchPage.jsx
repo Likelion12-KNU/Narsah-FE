@@ -8,7 +8,7 @@ function JobSearchPage() {
   return (
     <div className='jobSearchPage'>
       <Bar/>
-      <div className='jobSearchContent'>
+      <div className='content'>
         구직 게시판
       </div>
     </div>
