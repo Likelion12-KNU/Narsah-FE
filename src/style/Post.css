@@ -8,6 +8,7 @@
     border: 2px solid #FFB22C;
     margin-bottom: 50px;
     box-shadow: 20px 20px 0px #F3FEB8;
+    min-width: 380px;
 }
 
 .post>.title {

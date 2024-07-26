@@ -1,3 +1,9 @@
+.commentForm {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+}
+
 .commentForm>form {
     box-sizing: border-box;
     height: 70px;

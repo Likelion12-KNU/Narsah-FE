@@ -6,6 +6,7 @@
     border-bottom: solid 3px #FFB22C;
     display: flex;
     align-items: center;
+    min-width: 600px;
 }
 
 .jobOpeningPage>.content>.board>img {
@@ -22,4 +23,20 @@
     font-weight: 700;
     font-size: 36px;
     color: #FFB22C;
+}
+
+.jobOpeningPage>a {
+    position: fixed;
+    padding: 30px;
+    box-shadow: 10px 10px #F3FEB8;
+    border: #FFB22C 3px solid;
+    box-sizing: border-box;
+    border-radius: 50%;
+    bottom: 50px;
+    right: 50px;
+}
+
+.jobOpeningPage>a>img {
+    width: 50px;
+    height: 50px;
 }

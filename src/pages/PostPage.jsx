@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Bar from '../components/Bar';
-import Post from '../components/Post';
-import "../style/PostPage.css"
-import profileImg from "../img/profile.png"
+import "../style/PostPage.css";
+import profileImg from "../img/profile.png";
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
+import delImg from "../img/del.png";
 
 function PostPage() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const postId = queryParams.get('q');
+    const navigate = useNavigate();
 
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState(null);
@@ -47,6 +48,25 @@ function PostPage() {
         fetchPost();
     }, [postId]);
 
+    const delPost = async () => {
+        try {
+            // 댓글 삭제
+            const responseComments = await axios.get(`http://localhost:3000/comment?post_id=${postId}`);
+            const deleteCommentsPromises = responseComments.data.map(comment => 
+                axios.delete(`http://localhost:3000/comment/${comment.id}`)
+            );
+            await Promise.all(deleteCommentsPromises);
+
+            // 게시글 삭제
+            await axios.delete(`http://localhost:3000/post/${postId}`);
+            navigate("/jobOpening");
+            console.log("post and comments delete successful");
+        }
+        catch (error) {
+            console.log("fail to delete post or comments", error);
+        }
+    };
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -59,6 +79,7 @@ function PostPage() {
         <div className='postPage'>
             <Bar />
             <div className='content'>
+                <Link to="/jobOpening">&lt;&lt; 이전으로</Link>
                 {post ? (
                     <div className='post'>
                         <div className='title'>
@@ -67,12 +88,13 @@ function PostPage() {
                                 <p>{post.author_name}</p>
                                 <h1>{post.title}</h1>
                             </div>
+                            <button onClick={delPost}><img src={delImg} alt="Delete" /></button>
                         </div>
                         <div className='postContent'>
                             <pre>{post.content}</pre>
                         </div>
-                        <CommentList comments={comments}/>
-                        <CommentForm post_id={post.id}/>
+                        <CommentList comments={comments} />
+                        <CommentForm post_id={post.id} />
                     </div>
                 ) : (
                     <div>게시글을 찾을 수 없습니다.</div>

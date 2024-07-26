@@ -1,0 +1,21 @@
+.commentList {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.commentList>h1 {
+    display: block;
+    padding-bottom: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFB22C;
+    border-bottom: #FFB22C solid 2px;
+}
+
+.commentList>.noComment {
+    padding: 20px 20px 40px 20px;
+    text-align: center;
+    color: #FFB22C;
+}
