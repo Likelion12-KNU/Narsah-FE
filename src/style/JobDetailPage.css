@@ -1,4 +1,4 @@
-/* Global reset */
+
 * {
     font-family: 'Pretendard', sans-serif;
     box-sizing: border-box;
@@ -7,8 +7,7 @@
   body {
     font-size: 14px;
   }
-  
-  /* Job Detail Page styles */
+
   .jobDetailPage {
     width: 100%;
     display: flex;
@@ -28,7 +27,7 @@
   
   .userHeader {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     border-bottom: 2px solid #F4A950;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -45,18 +44,28 @@
   }
   
   .userInfo {
+    flex-grow: 1;
     font-size: 16px;
     color: #333;
   }
   
   .userInfo h2 {
-    margin: 0 0 10px 0;
+    padding-top: 40px;
+    margin: 0;
     font-size: 20px;
     color: #F4A950;
   }
   
-  .userInfo p {
-    margin: 5px 0;
+  .userAttributes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  
+  .userAttributes p {
+    margin: 5px 10px;
+    flex: 1;
   }
   
   .detailInfo {
@@ -65,11 +74,12 @@
   }
   
   .detailInfo h3 {
-    text-align: center;;
+    margin-top: 0;
     font-size: 18px;
     color: #F4A950;
     border-bottom: 2px solid #F4A950;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
   }
   
   .detailInfo p {
