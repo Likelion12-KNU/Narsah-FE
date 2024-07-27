@@ -74,11 +74,11 @@
   }
   
   .detailInfo h3 {
-    margin-top: 0;
+    text-align: center;
     font-size: 18px;
     color: #F4A950;
     border-bottom: 2px solid #F4A950;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     margin-bottom: 20px;
   }
   
