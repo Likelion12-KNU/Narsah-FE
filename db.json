@@ -1,0 +1,60 @@
+{
+  "post": [
+    {
+      "id": "1",
+      "author_name": "익명",
+      "title": "test1",
+      "content": "안녕하세요 🙋‍♀️"
+    },
+    {
+      "id": "2",
+      "author_name": "익명",
+      "title": "test2",
+      "content": "좋은 아침입니다 ~ \n 그냥 죽자...\n\n\n오버플로우?"
+    },
+    {
+      "id": "3",
+      "author_name": "익명",
+      "title": "test3",
+      "content": "날씨가 너무 좋아요 🌞"
+    },
+    {
+      "id": "5",
+      "author_name": "익명",
+      "title": "test5",
+      "content": "🐵🐵"
+    }
+  ],
+  "comment": [
+    {
+      "id": "1",
+      "post_id": 1,
+      "author_name": "익명",
+      "content": "댓글 테스트 입니다"
+    },
+    {
+      "id": "2",
+      "post_id": 1,
+      "author_name": "익명",
+      "content": "댓글 테스트 입니다222"
+    },
+    {
+      "id": "3cae",
+      "post_id": 1,
+      "author_name": "익명",
+      "content": "되나염?"
+    },
+    {
+      "id": "8267",
+      "post_id": 1,
+      "author_name": "익명",
+      "content": "댓글...."
+    },
+    {
+      "id": "15e7",
+      "post_id": 2,
+      "author_name": "익명",
+      "content": "야호야호"
+    }
+  ]
+}

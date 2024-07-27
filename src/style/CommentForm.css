@@ -1,0 +1,52 @@
+.commentForm {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+}
+
+.commentForm>form {
+    box-sizing: border-box;
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    border-radius: 50px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: #FFB22C solid 2px;
+}
+
+.commentForm>form>input {
+    width: 80%;
+    display: inline-flexbox;
+    box-sizing: border-box;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 5px;
+}
+
+.commentForm>form>button {
+    display: inline-flexbox;
+    box-sizing: border-box;
+    height: 60px;
+    background-color: #FFB22C;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    width: 10%;
+    color: white;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3vw;
+    line-height: 55px;
+    align-items: center;
+    letter-spacing: -0.01em;
+    margin-right: 5px;
+    cursor: pointer;
+}

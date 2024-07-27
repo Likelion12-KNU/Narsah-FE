@@ -10,6 +10,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .loginPage>.content>.loginForm>h1 {

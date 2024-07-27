@@ -8,6 +8,7 @@ import MainPage from './pages/MainPage'
 import LogInPage from './pages/LogInPage'
 import SignUpPage from './pages/SignUpPage'
 import UserPage from './pages/UserPage'
+import PostPage from './pages/PostPage'
 import JobDetailPage from './pages/JobDetailPage' // 새로 추가된 페이지
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path='/login' element={<LogInPage/>}/>
             <Route path='/signup' element={<SignUpPage/>}/>
             <Route path='/user' element={<UserPage/>}/>
+            <Route path='/jobOpening/post' element={<PostPage/>}/>
             <Route path='/job/:id' element={<JobDetailPage/>}/> {/* 상세 정보 페이지 경로 추가 */}
           </Routes>
         </div>
