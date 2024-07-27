@@ -29,7 +29,7 @@ function JobSearchPage() {
       affiliation: "無",
       location: "서울 노원구"
     },
-    // 추가 카드들
+
   ];
 
   const filteredCards = jobCards.filter(card => 
