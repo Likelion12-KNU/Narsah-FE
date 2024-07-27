@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
-import "../style/JobDetailPage.css"; // CSS 파일을 임포트합니다
-import userOrange from '../img/user_orange.png'; // 사용자의 이미지 파일을 임포트합니다
+import "../style/JobDetailPage.css"; 
+import userOrange from '../img/user_orange.png'; 
 
 const jobDetails = [
   {
     id: 1,
-    name: "이*롱",
+    name: "홍*동",
     license: "有",
     affiliation: "無",
     location: "서울 성북구",
@@ -25,25 +25,25 @@ const jobDetails = [
   },
   {
     id: 2,
-    name: "김*순",
+    name: "김*신",
     license: "有",
     affiliation: "無",
     location: "서울 노원구",
     age: 39,
     height: 165,
     weight: 55,
-    gender: "여성",
-    careLocation: "병원",
+    gender: "남성",
+    careLocation: "자택",
     carePeriod: "2024.08.01 부터 2024.08.20 까지",
     diagnosis: "당뇨",
     hospitalizationPurpose: "치료",
-    roomType: "특실",
+    roomType: "X",
     mobilityStatus: "보행 불가능",
     assistiveDevices: "없음",
     medications: "인슐린",
     details: "40대 이하, 간병 유경험자 우대"
   },
-  // 추가 카드들
+
 ];
 
 function JobDetailPage() {
@@ -61,11 +61,13 @@ function JobDetailPage() {
           <img src={userOrange} alt="user" className="userIcon" />
           <div className="userInfo">
             <h2>{jobDetail.name} 환자</h2>
-            <p><strong>나이:</strong> {jobDetail.age}세</p>
-            <p><strong>키:</strong> {jobDetail.height}cm</p>
-            <p><strong>몸무게:</strong> {jobDetail.weight}kg</p>
-            <p><strong>성별:</strong> {jobDetail.gender}</p>
-            <p><strong>간병 장소:</strong> {jobDetail.careLocation}</p>
+            <div className="userAttributes">
+              <p><strong>나이:</strong> {jobDetail.age}세</p>
+              <p><strong>키:</strong> {jobDetail.height}cm</p>
+              <p><strong>몸무게:</strong> {jobDetail.weight}kg</p>
+              <p><strong>성별:</strong> {jobDetail.gender}</p>
+              <p><strong>간병 장소:</strong> {jobDetail.careLocation}</p>
+            </div>
           </div>
         </div>
         <div className="detailInfo">
