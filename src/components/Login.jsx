@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Link, Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom'
 
 // dummy
 import { tUser } from '../config/tmpUser'
@@ -7,14 +7,18 @@ import { tUser } from '../config/tmpUser'
 const Login = () => {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const navi = useNavigate();
 
     // 더미 데이터(tUser) 사용. BE와 연동시 수정
     const handleConfirm = (e) => {
+        e.preventDefault();
         if (id === tUser.id && password === tUser.password) {
             alert("로그인에 성공했습니다.");
             // user profile 또는 main으로 이동
+            navi('/');
         } else {
             alert("ID 또는 PASSWORD가 잘못되었습니다.")
+            window.location.reload()    // reload
         }
     }
 
