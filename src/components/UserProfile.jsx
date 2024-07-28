@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import profileImg from "../img/profile.png";
 import userOrange from '../img/user_orange.png';
-import linkImg from "../img/link.png";
+import "../style/UserProfile.css"
 
 // code : 일반 유저 -> 0, 간병인 -> 1
 function UserProfile({name, userid, code}) {
@@ -12,7 +12,12 @@ function UserProfile({name, userid, code}) {
             <div className="userHeader">
                 <img src={userOrange} alt="user" className="userIcon" />
                 <div className="userInfo">
-                    <h2>{name} 님</h2>
+                    {code === 0 ? (
+                        <h2><strong>{name}</strong> 님</h2>
+                    ) : (
+                        <h2>간병사 <strong>{name}</strong> 님</h2>
+                    )}
+                    
                     <p>{userid}</p>
                 </div>
             </div>
