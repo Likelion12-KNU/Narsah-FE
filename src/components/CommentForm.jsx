@@ -10,8 +10,6 @@ function CommentForm({ post_id }) {
     };
 
     const handleCommentSubmit = async (event) => {
-        event.preventDefault();
-
         // POST 요청을 보내는 함수
         try {
             await axios.post('http://localhost:3000/comment', {
