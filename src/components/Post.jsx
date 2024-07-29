@@ -7,7 +7,7 @@ import "../style/Post.css"
 function Post({ id, author_name, title, content }) {
 
   return (
-    <div className='post'>
+    <Link className='post' to={`/jobOpening/post?q=${id}`}>
       <div className='title'>
         <img src={profileImg} />
         <div className='titleCover'>
@@ -19,10 +19,8 @@ function Post({ id, author_name, title, content }) {
         <pre>{content}</pre>
       </div>
       <p>댓글</p>
-      <Link to={`/jobOpening/post?q=${id}`}>
-        <img src={linkImg} />
-      </Link>
-    </div>
+      <img src={linkImg} />
+    </Link>
   )
 }
 

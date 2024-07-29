@@ -122,6 +122,11 @@
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.searchPage>.yellow>.nav>.navElement:hover{
+    transform: scale(1.2);
 }
 
 .searchPage>.yellow>.nav>.navElement:nth-child(1) {

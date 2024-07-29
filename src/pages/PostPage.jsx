@@ -16,8 +16,8 @@ function PostPage() {
 
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // 백엔드에서 게시글 데이터를 가져오는 함수
@@ -67,8 +67,8 @@ function PostPage() {
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
+    const handleCommentAdd = (newComment) => {
+        setComments([...comments, newComment]);
     }
 
     if (error) {
@@ -94,7 +94,7 @@ function PostPage() {
                             <pre>{post.content}</pre>
                         </div>
                         <CommentList comments={comments} />
-                        <CommentForm post_id={post.id} />
+                        <CommentForm post_id={post.id} commentAdd={handleCommentAdd}/>
                     </div>
                 ) : (
                     <div>게시글을 찾을 수 없습니다.</div>
