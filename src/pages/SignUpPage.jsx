@@ -12,6 +12,7 @@ function SignUpPage() {
                     <h1>SIGN UP</h1>
                     <input type='text' placeholder='ID'/>
                     <input type='password' placeholder='PASSWORD'/>
+                    <input type='password' placeholder='PASSWORD CONFIRM'/>
                     <button type='submit'>SIGN UP</button>
                     <br/><p>계정이 있으신가요? </p><Link to='/login'>로그인</Link>
                 </form>

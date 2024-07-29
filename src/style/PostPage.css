@@ -4,6 +4,7 @@
 }
 
 .postPage>.content>a {
+    width: 100%;
     display: block;
     padding-bottom: 10px;
     font-family: 'Pretendard';
@@ -27,6 +28,7 @@
     border: 2px solid #FFB22C;
     margin-bottom: 50px;
     box-shadow: 20px 20px 0px #F3FEB8;
+    transform: none;
 }
 
 .postPage>.content>.post>.title {

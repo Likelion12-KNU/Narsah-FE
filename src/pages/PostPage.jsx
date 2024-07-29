@@ -16,7 +16,6 @@ function PostPage() {
 
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -67,8 +66,8 @@ function PostPage() {
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
+    const handleCommentAdd = (newComment) => {
+        setComments([...comments, newComment]);
     }
 
     if (error) {
@@ -94,7 +93,7 @@ function PostPage() {
                             <pre>{post.content}</pre>
                         </div>
                         <CommentList comments={comments} />
-                        <CommentForm post_id={post.id} />
+                        <CommentForm post_id={post.id} commentAdd={handleCommentAdd}/>
                     </div>
                 ) : (
                     <div>게시글을 찾을 수 없습니다.</div>
