@@ -10,6 +10,7 @@ import SignUpPage from './pages/SignUpPage'
 import UserPage from './pages/UserPage'
 import PostPage from './pages/PostPage'
 import JobDetailPage from './pages/JobDetailPage' // 새로 추가된 페이지
+import NewPostPage from './pages/NewPostPage'
 
 function App() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -32,6 +33,7 @@ function App() {
             <Route path='/user' element={<UserPage/>}/>
             <Route path='/jobOpening/post' element={<PostPage/>}/>
             <Route path='/job/:id' element={<JobDetailPage/>}/> {/* 상세 정보 페이지 경로 추가 */}
+            <Route path="/jobOpening/newPost" element={<NewPostPage/>}/>
           </Routes>
         </div>
       </Router>

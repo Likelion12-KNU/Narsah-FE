@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import "../style/Signup.css"
 
 // dummy
 import { tUser } from '../config/tmpUser';
@@ -19,29 +20,27 @@ function Signup() {
     }
 
     return (
-        <div className='content'>
-            <form className='signupForm'>
-                <h1>SIGN UP</h1>
-                <input 
-                    type='text'
-                    placeholder='ID'
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
-                />
-                <input
-                    type='password'
-                    placeholder='PASSWORD'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                    type='submit'
-                    onClick={handleConfirm}
-                >SIGN UP</button>
-                
-                <br /><p>계정이 있으신가요? </p><Link to='/login'>로그인</Link>
-            </form>
-        </div>
+        <form className='signupForm'>
+            <h1>SIGN UP</h1>
+            <input
+                type='text'
+                placeholder='ID'
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+            />
+            <input
+                type='password'
+                placeholder='PASSWORD'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+                type='submit'
+                onClick={handleConfirm}
+            >SIGN UP</button>
+
+            <br /><p>계정이 있으신가요? </p><Link to='/login'>로그인</Link>
+        </form>
     )
 }
 

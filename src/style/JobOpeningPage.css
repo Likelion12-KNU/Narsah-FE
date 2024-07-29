@@ -34,6 +34,11 @@
     border-radius: 50%;
     bottom: 50px;
     right: 50px;
+    transition: transform 0.3s;
+}
+
+.jobOpeningPage>a:hover {
+    transform: scale(1.1);
 }
 
 .jobOpeningPage>a>img {

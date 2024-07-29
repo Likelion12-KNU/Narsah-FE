@@ -8,7 +8,9 @@ function SignUpPage() {
     return (
         <div className='signupPage'>
             <Bar />
-            <Signup />
+            <div className='content'>
+                <Signup />
+            </div>
         </div>
     );
 };
