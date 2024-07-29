@@ -39,26 +39,26 @@ function Patient({
             </div>
             <div className="detailInfo">
                 <h3>세부 정보</h3>
-                <div className="detailItem headInfo">
+                <div className="detailItem">
                     <span>요구 간병 기간</span> <strong>{carePeriod}</strong>
                 </div>
-                <div className="detailItem headInfo">
+                <div className="detailItem">
                     <span>진단명</span> <strong>{diagnosis}</strong>
                 </div>
                 <div className="detailItem">
-                    <span>입원 목적:</span> <strong>{hospitalizationPurpose}</strong>
+                    <span>입원 목적</span> <strong>{hospitalizationPurpose}</strong>
                 </div>
                 <div className="detailItem">
-                    <span>병실 유형:</span> <strong>{roomType}</strong>
+                    <span>병실 유형</span> <strong>{roomType}</strong>
                 </div>
                 <div className="detailItem">
-                    <span>거동 상태:</span> <strong>{mobilityStatus}</strong>
+                    <span>거동 상태</span> <strong>{mobilityStatus}</strong>
                 </div>
                 <div className="detailItem">
-                    <span>보조 장치 여부:</span> <strong>{assistiveDevices}</strong>
+                    <span>보조 장치 여부</span> <strong>{assistiveDevices}</strong>
                 </div>
                 <div className="detailItem">
-                    <span>복용 약:</span> <strong>{medications}</strong>
+                    <span>복용 약</span> <strong>{medications}</strong>
                 </div>
             </div>
         </div>
