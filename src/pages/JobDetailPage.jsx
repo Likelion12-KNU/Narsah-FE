@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import "../style/JobDetailPage.css"; 
-import userOrange from '../img/user_orange.png'; 
+import Patient from '../components/Patient';
 
+// db에 구현
 const jobDetails = [
   {
     id: 1,
@@ -56,31 +57,22 @@ function JobDetailPage() {
 
   return (
     <div className="jobDetailPage">
-      <div className="detailCard">
-        <div className="userHeader">
-          <img src={userOrange} alt="user" className="userIcon" />
-          <div className="userInfo">
-            <h2>{jobDetail.name} 환자</h2>
-            <div className="userAttributes">
-              <p><strong>나이:</strong> {jobDetail.age}세</p>
-              <p><strong>키:</strong> {jobDetail.height}cm</p>
-              <p><strong>몸무게:</strong> {jobDetail.weight}kg</p>
-              <p><strong>성별:</strong> {jobDetail.gender}</p>
-              <p><strong>간병 장소:</strong> {jobDetail.careLocation}</p>
-            </div>
-          </div>
-        </div>
-        <div className="detailInfo">
-          <h3>세부 정보</h3>
-          <p><strong>요구 간병 기간:</strong> {jobDetail.carePeriod}</p>
-          <p><strong>진단명:</strong> {jobDetail.diagnosis}</p>
-          <p><strong>입원 목적:</strong> {jobDetail.hospitalizationPurpose}</p>
-          <p><strong>병실 유형:</strong> {jobDetail.roomType}</p>
-          <p><strong>거동 상태:</strong> {jobDetail.mobilityStatus}</p>
-          <p><strong>보조 장치 여부:</strong> {jobDetail.assistiveDevices}</p>
-          <p><strong>복용 약:</strong> {jobDetail.medications}</p>
-        </div>
-      </div>
+      <Patient      
+        id={jobDetail.id}
+        name={jobDetail.name}
+        age={jobDetail.age}
+        height={jobDetail.height}
+        weight={jobDetail.weight}
+        gender={jobDetail.gender}
+        careLocation={jobDetail.careLocation}
+        carePeriod={jobDetail.carePeriod}
+        diagnosis={jobDetail.diagnosis}
+        hospitalizationPurpose={jobDetail.hospitalizationPurpose}
+        roomType={jobDetail.roomType}
+        mobilityStatus={jobDetail.mobilityStatus}
+        assistiveDevices={jobDetail.assistiveDevices}
+        medications={jobDetail.medications}
+      />
     </div>
   );
 }
