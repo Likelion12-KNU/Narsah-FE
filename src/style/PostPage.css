@@ -75,6 +75,12 @@
     background-color: transparent;
     outline: none;
     border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.postPage>.content>.post>.title>button:hover {
+    transform: scale(1.2);
 }
 
 .postPage>.content>.post>.postContent {

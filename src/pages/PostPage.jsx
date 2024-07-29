@@ -17,6 +17,7 @@ function PostPage() {
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // 백엔드에서 게시글 데이터를 가져오는 함수

@@ -109,7 +109,6 @@
 }
 
 .mainPage>.yellow>.nav>.navElement {
-    z-index: 1000;
     display: block;
     width: 100px;
     height: 100px;
@@ -122,6 +121,11 @@
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.mainPage>.yellow>.nav>.navElement:hover {
+    transform: scale(1.2);
 }
 
 .mainPage>.yellow>.nav>.navElement:nth-child(1) {

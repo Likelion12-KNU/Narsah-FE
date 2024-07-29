@@ -19,8 +19,8 @@ function CommentForm({ post_id , commentAdd}) {
                 author_name: '익명',
                 content: comment
             });
-            commentAdd(re.data); // 상위 컴포넌트로 추가된 댓글의 정보를 전달
-            setComment(""); // 댓글창 초기화
+            commentAdd(re.data); // 상위 컴포넌트(PostPage)로 추가된 댓글의 정보를 전달
+            setComment(""); // 댓글 입력창 초기화
         } catch (error) {
             console.error('Error posting comment:', error);
         }
