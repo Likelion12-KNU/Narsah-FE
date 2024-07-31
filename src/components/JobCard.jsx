@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import userOrange from '../img/user_orange.png';
 import linkImg from "../img/link.png"
-
+import "../style/JobCard.css"
 
 function JobCard({index, id, title, author, unit, license, affiliation, location }) {
     const navigate = useNavigate();
@@ -22,7 +22,6 @@ function JobCard({index, id, title, author, unit, license, affiliation, location
                     <p>소속: {affiliation}</p>
                     <p>지역: {location}</p>
                 </div>
-                <img className='linkImg' src={linkImg} alt="link" />
             </div>
         </div>
     )

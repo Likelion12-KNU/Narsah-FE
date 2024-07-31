@@ -5,7 +5,7 @@ import "../style/Filter.css";
 function Filter() {
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [filter, setFilter] = useState({unit:'', license: '', affiliation: '', location: '' });
+    const [filter, setFilter] = useState({ unit: '', license: '', affiliation: '', location: '' });
 
     return (
         <>
@@ -38,14 +38,12 @@ function Filter() {
                     />
                 </div>
             </div>
-            <div className='content'>
-                <JobCardList 
-                    unit = {filter.unit}
-                    license = {filter.license}
-                    affiliation = {filter.affiliation}
-                    location = {filter.location}
-                />
-            </div>
+            <JobCardList
+                unit={filter.unit}
+                license={filter.license}
+                affiliation={filter.affiliation}
+                location={filter.location}
+            />
         </>
     )
 }
