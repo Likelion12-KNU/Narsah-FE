@@ -51,12 +51,12 @@ function MainPage() {
             <div className='jobNav'>
                 <Link className='jobElement' to="/jobOpening">
                     <img className='icon' src={jobOpeningImg} />
-                    <p>구인</p>
+                    <p>간병인 구하기</p>
                     <img className='linkImg' src={linkImg} />
                 </Link>
                 <Link className='jobElement' to="/jobSearch">
                     <img className='icon' src={jobSearchImg} />
-                    <p>구직</p>
+                    <p>환자 찾기</p>
                     <img className='linkImg' src={linkImg} />
                 </Link>
             </div>
