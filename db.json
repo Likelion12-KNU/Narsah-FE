@@ -86,5 +86,34 @@
       "author_name": "익명",
       "content": "됐남"
     }
+  ],
+  "JobCard": [
+    {
+      "id": 1,
+      "title": "간병사 모집",
+      "author": "홍길동",
+      "name": "기관",
+      "license": "없음",
+      "affiliation": "있음",
+      "location": "서울 성북구"
+    },
+    {
+      "id": 2,
+      "title": "개인 간병사 구함",
+      "author": "김철수",
+      "name": "개인",
+      "license": "간병사",
+      "affiliation": "없음",
+      "location": "서울 노원구"
+    },
+    {
+      "id": 3,
+      "title": "개인 간병사 구함",
+      "author": "박땡땡",
+      "name": "기관",
+      "license": "요양보호사",
+      "affiliation": "있음",
+      "location": "서울 강서구"
+    }
   ]
 }
