@@ -1,0 +1,53 @@
+.jobCard {
+    width: 700px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #F4A950;
+    border-radius: 20px;
+    box-shadow: 20px 20px 10px #FEFFD8;
+    transition: transform 0.3s;
+}
+
+.jobCard:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.cardContent {
+    display: flex;
+    align-items: center;
+}
+
+.userIcon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border: 2px solid #F4A950;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #FFCC80;
+}
+
+.cardText {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #F4A950;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.cardText h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.cardText p {
+    margin: 5px 0;
+}
+
+/* .linkImg {
+    width: 34px;
+    position: absolute;
+    bottom: -7%;
+    right: -2%;
+} */
