@@ -22,6 +22,7 @@ function JobCard({index, id, title, author, unit, license, affiliation, location
                     <p>소속: {affiliation}</p>
                     <p>지역: {location}</p>
                 </div>
+                <img className='linkImg' src={linkImg} alt="link" />
             </div>
         </div>
     )
