@@ -8,11 +8,17 @@ import linkImg from "../img/link.png";
 
 function MainPage() {
     const [query, setQuery] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 관리하는 상태 변수
     const navigate = useNavigate();
 
     const handleSearch = (event) => {
         event.preventDefault();
         navigate(`/search?q=${query}`);
+    };
+
+    const handleLogout = () => {
+        // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)
+        setIsLoggedIn(false);
     };
 
     return (
@@ -35,29 +41,42 @@ function MainPage() {
                     </form>
                 </div>
                 <div className='nav'>
-                    <Link className='navElement' to="/login">
-                        LOG IN
-                    </Link>
-                    <Link className='navElement' to="/signup">
-                        SIGN UP
-                    </Link>
-                    <Link className='navElement' to="/user">
-                        USER
-                    </Link>
+                    {isLoggedIn ? (
+                        <>
+                            <button className='navElement' onClick={handleLogout}>
+                                LOG OUT
+                            </button>
+                            <Link className='navElement' to="/user">
+                                USER
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link className='navElement' to="/login">
+                                LOG IN
+                            </Link>
+                            <Link className='navElement' to="/signup">
+                                SIGN UP
+                            </Link>
+                            <Link className='navElement' to="/user">
+                                USER
+                            </Link>
+                        </>
+                    )}
                 </div>
                 <div className='orangeLine' />
                 <div className='yellowLine' />
             </div>
             <div className='jobNav'>
                 <Link className='jobElement' to="/jobOpening">
-                    <img className='icon' src={jobOpeningImg} />
+                    <img className='icon' src={jobOpeningImg} alt="Job Opening"/>
                     <p>간병인 구하기</p>
-                    <img className='linkImg' src={linkImg} />
+                    <img className='linkImg' src={linkImg} alt="Link"/>
                 </Link>
                 <Link className='jobElement' to="/jobSearch">
-                    <img className='icon' src={jobSearchImg} />
+                    <img className='icon' src={jobSearchImg} alt="Job Search"/>
                     <p>환자 찾기</p>
-                    <img className='linkImg' src={linkImg} />
+                    <img className='linkImg' src={linkImg} alt="Link"/>
                 </Link>
             </div>
         </div>
