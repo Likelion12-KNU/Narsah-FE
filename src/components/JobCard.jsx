@@ -3,7 +3,7 @@ import userOrange from '../img/user_orange.png';
 import linkImg from "../img/link.png"
 
 
-function JobCard({index, id, title, author, name, license, affiliation, location }) {
+function JobCard({index, id, title, author, unit, license, affiliation, location }) {
     const navigate = useNavigate();
 
     return (
@@ -17,7 +17,7 @@ function JobCard({index, id, title, author, name, license, affiliation, location
                 <div className='cardText'>
                     <h2>{title}</h2>
                     <p>작성자: {author}</p>
-                    <p>단위: {name}</p>
+                    <p>단위: {unit}</p>
                     <p>자격증: {license}</p>
                     <p>소속: {affiliation}</p>
                     <p>지역: {location}</p>

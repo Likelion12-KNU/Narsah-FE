@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react';
 import JobCard from './JobCard';
 import "../style/JobCardList.css"
 
-function JobCardList({license, affiliation, location}) {
+function JobCardList({unit, license, affiliation, location}) {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filter, setFilter] = useState({ license: '', affiliation: '', location: '' });
-
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -31,7 +27,7 @@ function JobCardList({license, affiliation, location}) {
     }, []);
 
     const filteredCards = cards.filter(card =>
-        card.name.includes(searchTerm) &&
+        card.unit.includes(unit) &&
         (license === '' || card.license === license) &&
         (affiliation === '' || card.affiliation === affiliation) &&
         (location === '' || card.location.includes(location))
@@ -51,7 +47,7 @@ function JobCardList({license, affiliation, location}) {
                     key={card.id}
                     id={card.id}
                     author={card.author}
-                    name={card.name} 
+                    unit={card.unit} 
                     license={card.license} 
                     affiliation={card.affiliation}
                     location={card.location}

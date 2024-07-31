@@ -5,7 +5,7 @@ import "../style/Filter.css";
 function Filter() {
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [filter, setFilter] = useState({ license: '', affiliation: '', location: '' });
+    const [filter, setFilter] = useState({unit:'', license: '', affiliation: '', location: '' });
 
     return (
         <>
@@ -14,8 +14,8 @@ function Filter() {
                     type="text"
                     placeholder="단위 검색"
                     className='searchBar'
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={filter.unit}
+                    onChange={(e) => setFilter({ ...filter, unit: e.target.value })}
                 />
                 <div className='filters'>
                     <select onChange={(e) => setFilter({ ...filter, license: e.target.value })}>
@@ -40,6 +40,7 @@ function Filter() {
             </div>
             <div className='content'>
                 <JobCardList 
+                    unit = {filter.unit}
                     license = {filter.license}
                     affiliation = {filter.affiliation}
                     location = {filter.location}
