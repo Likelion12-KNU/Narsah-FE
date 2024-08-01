@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.offerProfilePage>.content {
+    margin-top: 50px;
+    min-width: 700px;
+}
+
+.offerProfilePage>.content>a {
+    width: 100%;
+    display: block;
+    padding-bottom: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFB22C;
+    border-bottom: #FFB22C solid 2px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.offerProfilePage>.content>.profile {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #FFB22C;
+    margin-bottom: 50px;
+    box-shadow: 20px 20px 0px #F3FEB8;
+    transform: none;
+}
+
+.offerProfilePage>.content>.profile>.title {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.offerProfilePage>.content>.profile>.title>img {
+    display: inline-block;
+}
+
+.offerProfilePage>.content>.profile>.title>.titleCover {
+    display: inline-block;
+    height: 100px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.offerProfilePage>.content>.profile>.title>.titleCover>p {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #FFB22C;
+    margin-bottom: -10px;
+}
+
+.offerProfilePage>.content>.profile>.title>.titleCover>h1 {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: -0.01em;
+}
+
+.offerProfilePage>.content>.profile>.title>button {
+    position: absolute;
+    right: 30px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.offerProfilePage>.content>.profile>.title>button:hover {
+    transform: scale(1.2);
+}
+
+.offerProfilePage>.content>.profile>.profileDetails {
+    padding-left: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-photo {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v4_524.png") no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-name>.name {
+    color: #000000;
+    font-weight: bold;
+    font-size: 29px;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-name>.role {
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 3px;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.profile-icons {
+    display: flex;
+    align-items: center;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.icon-bg {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,1);
+    border-radius: 50%;
+}
+
+.offerProfilePage>.content>.profile>.profileDetails>.icon {
+    width: 66px;
+    height: 66px;
+    background: url("../images/v4_527.png") no-repeat center center;
+    background-size: cover;
+    margin-left: -80px;
+}
+
+.offerProfilePage>.content>.profile>.profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.offerProfilePage>.content>.profile>.profile-details>.detail {
+    width: 33%;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #000;
+}
+
+.offerProfilePage>.content>.profile>.additional-info {
+    padding-left: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1);
+}
+
+.offerProfilePage>.content>.profile>.additional-info>.additional-details {
+    margin-top: 30px;
+}
+
+.offerProfilePage>.content>.profile>.additional-info>.additional-details>.label {
+    display: block;
+    font-size: 20px;
+    color: #FFB22C;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.offerProfilePage>.content>.profile>.additional-info>.additional-details>.value {
+    display: block;
+    font-size: 20px;
+    color: #000;
+}
+
+.offerProfilePage>.content>.profile>.action-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.offerProfilePage>.content>.profile>.action-button>.button-text {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #FFB22C;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.offerProfilePage>.content>.profile>.action-button>.button-text:hover {
+    background-color: #FFA726;
+}

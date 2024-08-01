@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import "../style/PostList.css"
 
-function PostList() {
+function PostList({query}) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -36,9 +38,10 @@ function PostList() {
 
     return (
         <div className='postList'>
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
                 <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.content} />
             ))}
+
         </div>
     );
 };

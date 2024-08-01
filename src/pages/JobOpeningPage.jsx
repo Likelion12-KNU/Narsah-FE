@@ -16,7 +16,7 @@ function JobOpeningPage() {
           <img src={jobOpeningImg}/>
           <h1>간병인 구해요</h1>
         </div>
-        <PostList/>
+        <PostList query=''/>
       </div>
       <Link to='/jobOpening/newPost'><img src={writeImg}/></Link>
     </div>
