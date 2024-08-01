@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import Bar from '../components/Bar';
+import Search from '../components/Search';
 import "../style/SearchPage.css"
-import leafImg from "../img/leaf.png"
 
 function SearchPage() {
     const [query, setQuery] = useState("");
@@ -14,36 +15,12 @@ function SearchPage() {
 
     return (
         <div className='searchPage'>
-            <div className='yellow'>
-                <div className='title'>
-                    <img src={leafImg} alt="Leaf" />
-                    <Link to="/">Nurspace</Link>
+            <Bar />
+            <div className='content'>
+                <div className='header'>
+                    <h1>검색</h1>
                 </div>
-                <div className='searchFrom'>
-                    <p>Search for<br />Carers</p>
-                    <form onSubmit={handleSearch}>
-                        <input
-                            type='text'
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            placeholder='지역, 이름으로 검색하세요'
-                        />
-                        <button type='submit'>search</button>
-                    </form>
-                </div>
-                <div className='nav'>
-                    <Link className='navElement' to="/login">
-                        LOG IN
-                    </Link>
-                    <Link className='navElement' to="/signup">
-                        SIGN UP
-                    </Link>
-                    <Link className='navElement' to="/user">
-                        USER
-                    </Link>
-                </div>
-                <div className='orangeLine' />
-                <div className='yellowLine' />
+                <Search />
             </div>
         </div>
     )
