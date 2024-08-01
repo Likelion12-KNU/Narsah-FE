@@ -43,6 +43,7 @@ function Filter() {
                 license={filter.license}
                 affiliation={filter.affiliation}
                 location={filter.location}
+                query={''}
             />
         </>
     )
