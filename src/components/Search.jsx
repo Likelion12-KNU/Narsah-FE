@@ -4,11 +4,14 @@ import JobCardList from './JobCardList';
 import "../style/Search.css";
 
 function Search() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const q = urlParams.get('q');
+    // console.log(q);
 
     return (
         <div className="Searched">
-            <PostList />
-            <JobCardList />
+            <PostList query={q} />
+            <JobCardList query={q} />
         </div>
     )
 }

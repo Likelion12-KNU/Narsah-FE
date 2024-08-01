@@ -19,6 +19,15 @@ function SearchPage() {
             <div className='content'>
                 <div className='header'>
                     <h1>검색</h1>
+                    <form onSubmit={handleSearch}>
+                        <input
+                            type='text'
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            placeholder='지역, 이름으로 검색하세요'
+                        />
+                        <button type='submit'>search</button>
+                    </form>
                 </div>
                 <Search />
             </div>
