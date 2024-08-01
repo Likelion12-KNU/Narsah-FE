@@ -1,23 +1,51 @@
-body {
-  font-size: 14px;
-}
-
-.jobSearchPage {
+.jobSearchPage>.content>.board {
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
-}
-
-.jobSearchPage>.content {
+  height: 70px;
+  padding: 20px;
+  padding-left: 50px;
+  border-bottom: solid 3px #FFB22C;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  min-width: 600px;
 }
 
-.header {
-  text-align: center;
+.jobSearchPage>.content>.board>img {
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin-right: 30px;
 }
 
-.header h1 {
-  color: #F4A950;
-  font-size: 24px;
+.jobSearchPage>.content>.board>h1 {
+  margin-top: 15px;
+  display: inline;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  color: #FFB22C;
+}
+
+.jobSearchPage>a {
+  position: fixed;
+  padding: 30px;
+  box-shadow: 10px 10px #F3FEB8;
+  border: #FFB22C 3px solid;
+  box-sizing: border-box;
+  border-radius: 50%;
+  bottom: 50px;
+  right: 50px;
+  transition: transform 0.3s;
+}
+
+.jobSearchPage>a:hover {
+  transform: scale(1.1);
+}
+
+.jobSearchPage>a>img {
+  width: 50px;
+  height: 50px;
 }

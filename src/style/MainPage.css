@@ -196,7 +196,7 @@
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 23px;
     line-height: 0px;
     color: #FFB22C;
 }
@@ -204,6 +204,6 @@
 .mainPage>.jobNav>.jobElement>.linkImg {
     position: absolute;
     bottom: 7%;
-    right: 7%;
+    right: 3%;
     z-index: 500;
 }
