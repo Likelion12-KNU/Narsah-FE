@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Bar from '../components/Bar';
 import UserProfile from '../components/UserProfile';
-import "../style/UserPage.css"
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import "../style/UserPage.css";
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Menu from '../components/userMenu/Menu';
 import PasswordChange from '../components/userMenu/PasswordChange';
 import NameChange from '../components/userMenu/NameChange';
@@ -17,22 +18,42 @@ import ReceivedApp from '../components/userMenu/ReceivedApp';
 import SentApp from '../components/userMenu/SentApp';
 import ReceivedReviews from '../components/userMenu/ReceivedReviews';
 
-// 추후 userprofile get 요청 추가
-
 function UserPage() {
-    let name = "홍길동";
-    let userId = "gildong123";
-    let code = 1;   // dummy
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/user?id=1`);
+                if (response.data.length > 0) {
+                    setUser(response.data[0]);
+                }
+                else {
+                    setUser(null);
+                }
+            } catch (error) {
+                console.error("Failed to get user data:", error.response ? error.response.data : error.message);
+                alert("로그인 후 이용하세요.");
+                navigate("/login");
+            }
+        };
+        fetchUser();
+    }, [navigate]);
+
+    if (user == null) {
+        return <div>Loading...</div>; // 또는 로딩 스피너를 반환
+    }
 
     return (
         <div className='userPage'>
             <Bar />
             <div className='content'>
                 <div className='userContent'>
-                <UserProfile name={name} userid={userId} code={code} />
+                    <UserProfile name={user.name} userid={user.userId} code={user.code} />
                     <Routes>
-                        <Route path='' element={<Menu code={code}/>}/>
-                        <Route path='password' element={<PasswordChange />} />
+                        <Route path='' element={<Menu code={user.code} />} />
+                        <Route path='password' element={<PasswordChange id={user.id}/>} />
                         <Route path='name' element={<NameChange />} />
                         <Route path='pay' element={<Pay />} />
                         <Route path='profile' element={<Profile />} />
@@ -49,6 +70,6 @@ function UserPage() {
             </div>
         </div>
     );
-};
+}
 
 export default UserPage;

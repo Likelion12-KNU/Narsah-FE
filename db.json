@@ -115,5 +115,14 @@
       "affiliation": "있음",
       "location": "서울 강서구"
     }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "userId": "hong1234",
+      "password": "hkd1234",
+      "name": "홍길동",
+      "code": 0
+    }
   ]
 }

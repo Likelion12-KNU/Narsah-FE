@@ -45,6 +45,17 @@ function SearchPage() {
                 <div className='orangeLine' />
                 <div className='yellowLine' />
             </div>
+            <div className='searchResult'>
+                <div className='searchJO'>
+                    <h1></h1>
+                </div>
+                <div className='searchJS'>
+
+                </div>
+                <div className='searchProfile'>
+
+                </div>
+            </div>
         </div>
     )
 }
