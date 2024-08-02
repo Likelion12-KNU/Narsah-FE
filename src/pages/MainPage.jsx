@@ -42,6 +42,7 @@ function MainPage() {
     const handleLogout = () => {
         // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)  // 아직 구현 안 함
         setIsLoggedIn(false);
+        window.location.reload()
     };
 
     return (
