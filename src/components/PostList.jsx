@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import "../style/PostList.css"
 
-function PostList({query}) {
+function PostList() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
-
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/post');
+                let response;
+                // api가 구인구직 나눠져있어 일단 나눠서 할당 
+                if (type === 'jobOpening') {
+                    response = await fetch(`${baseUrl}/api/board/jobposting/lists`);
+                } else if (type === 'jobSearch') {
+                    response = await fetch(`${baseUrl}/api/board/jobsearch/lists`);
+                }
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -38,10 +42,9 @@ function PostList({query}) {
 
     return (
         <div className='postList'>
-            {filteredPosts.map((post) => (
+            {posts.map((post) => (
                 <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.content} />
             ))}
-
         </div>
     );
 };
