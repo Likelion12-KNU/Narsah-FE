@@ -21,9 +21,9 @@ function PostForm({ author_name, type }) {
         try {
             let url;
             if (type === 'jobOpening') {
-                url = 'http://3.36.127.16:8080/api/board/jobposting';
+                url = `${baseUrl}/api/board/jobposting`;
             } else if (type === 'jobSearch') {
-                url = 'http://3.36.127.16:8080/api/board/jobsearch';
+                url = `${baseUrl}/api/board/jobsearch`;
             }
 
             await axios.post(url, {
