@@ -7,6 +7,7 @@ import profileImg from "../img/profile.png";
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import delImg from "../img/del.png";
+import { baseUrl } from '../config/const';
 
 function PostPage() {
     const location = useLocation();
@@ -31,6 +32,7 @@ function PostPage() {
                 } else {
                     setPost(null);
                 }
+
                 // 댓글 불러오기
                 const responseComment = await axios.get(`${baseUrl}/api/comment/${postId}`); // 게시판 ID에 포함되어 있는 댓글 보기 api
                 if (responseComment.data.length > 0) {
@@ -38,10 +40,8 @@ function PostPage() {
                 } else {
                     setComments([]);
                 }
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
+            } catch (err) {
+                setError(err.message);
             }
         };
 
@@ -59,11 +59,11 @@ function PostPage() {
 
             // 게시글 삭제
             await axios.delete(`${baseUrl}/api/board/jobposting/${postId}`);
-            navigate("/jobOpening");
             console.log("post and comments delete successful");
+            navigate("/jobOpening");
         }
-        catch (error) {
-            console.log("fail to delete post or comments", error);
+        catch (err) {
+            console.log("fail to delete post or comments", err);
         }
     };
 

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
+import { baseUrl } from '../config/const';
 import "../style/PostList.css"
 
-function PostList() {
+function PostList({query}) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,20 +11,16 @@ function PostList() {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                let response;
-                // api가 구인구직 나눠져있어 일단 나눠서 할당 
-                if (type === 'jobOpening') {
-                    response = await fetch(`${baseUrl}/api/board/jobposting/lists`);
-                } else if (type === 'jobSearch') {
-                    response = await fetch(`${baseUrl}/api/board/jobsearch/lists`);
-                }
+                // default - get
+                // api 주소에 howMany, pageNum query 적용해야 함
+                const response = await fetch(`${baseUrl}/api/board/jobposting/lists?howMany=100&pageNum=0`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 setPosts(data);
-            } catch (error) {
-                setError(error);
+            } catch(err) {
+                setError(err);
             } finally {
                 setLoading(false);
             }
@@ -31,6 +28,9 @@ function PostList() {
 
         fetchPosts();
     }, []);
+
+    // search filter
+    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
 
     if (loading) {
         return <div>Loading...</div>;
@@ -42,7 +42,7 @@ function PostList() {
 
     return (
         <div className='postList'>
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
                 <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.content} />
             ))}
         </div>
