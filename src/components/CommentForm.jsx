@@ -14,7 +14,7 @@ function CommentForm({ post_id , commentAdd}) {
 
         // POST 요청을 보내는 함수
         try {
-            const re = await axios.post('http://localhost:3000/comment', {
+            const response = await axios.post('http://3.36.127.16:8080/api/comment', {
                 post_id: post_id,
                 author_name: '익명',
                 content: comment

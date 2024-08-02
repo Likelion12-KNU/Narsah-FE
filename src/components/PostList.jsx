@@ -10,7 +10,12 @@ function PostList() {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/post');
+                let response;
+                if (type === 'jobOpening') {
+                    response = await fetch('http://3.36.127.16:8080/api/board/jobposting/lists');
+                } else if (type === 'jobSearch') {
+                    response = await fetch('http://3.36.127.16:8080/api/board/jobsearch/lists');
+                }
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

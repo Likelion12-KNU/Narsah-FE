@@ -8,6 +8,8 @@ import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import delImg from "../img/del.png";
 
+axios.defaults.baseURL = 'http://3.36.127.16:8080';
+
 function PostPage() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -24,7 +26,7 @@ function PostPage() {
         const fetchPost = async () => {
             try {
                 // Post 불러오기
-                const response = await axios.get(`http://localhost:3000/post?id=${postId}`);
+                const response = await axios.get(`/api/board/jobposting/${postId}`); // 구인 상세 게시판 api
                 // 응답이 배열이라면 첫 번째 요소를 사용
                 if (response.data.length > 0) {
                     setPost(response.data[0]);
@@ -32,7 +34,7 @@ function PostPage() {
                     setPost(null);
                 }
                 // 댓글 불러오기
-                const responseComment = await axios.get(`http://localhost:3000/comment?post_id=${postId}`);
+                const responseComment = await axios.get(`/api/comment/${postId}`); // 게시판 ID에 포함되어 있는 댓글 보기 api
                 if (responseComment.data.length > 0) {
                     setComments(responseComment.data);
                 } else {
@@ -51,14 +53,14 @@ function PostPage() {
     const delPost = async () => {
         try {
             // 댓글 삭제
-            const responseComments = await axios.get(`http://localhost:3000/comment?post_id=${postId}`);
+            const responseComments = await axios.get(`/api/comment/${postId}`); // 댓글 api
             const deleteCommentsPromises = responseComments.data.map(comment => 
-                axios.delete(`http://localhost:3000/comment/${comment.id}`)
+                axios.delete(`/api/comment/${comment.id}`) // 댓글 api
             );
             await Promise.all(deleteCommentsPromises);
 
             // 게시글 삭제
-            await axios.delete(`http://localhost:3000/post/${postId}`);
+            await axios.delete(`/api/board/jobposting/${postId}`);
             navigate("/jobOpening");
             console.log("post and comments delete successful");
         }

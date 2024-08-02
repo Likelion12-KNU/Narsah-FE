@@ -9,7 +9,7 @@ function Comment({ id, post_id, author_name, content }) {
         event.preventDefault();
 
         try {
-            await axios.delete(`http://localhost:3000/comment/${id}`);
+            await axios.delete(`http://3.36.127.16:8080/api/comment/${id}`);
             window.location.reload();
             console.log("comment delete successful")
         }
