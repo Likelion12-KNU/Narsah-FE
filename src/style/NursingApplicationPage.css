@@ -1,0 +1,99 @@
+.nursingPage>.content>.nursingCover {
+    width: 90%;
+    padding: 50px;
+    border-radius: 20px;
+    border: 2px solid #FFB22C;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.nursingPage>.content>.nursingCover>.patientApp,
+.nursingPage>.content>.nursingCover>.nurseApp {
+    padding-bottom: 20px;
+}
+
+.nursingPage>.content>.nursingCover>.patientApp {
+    border-bottom: #FFB22C solid 2px;
+    margin-bottom: 20px;
+}
+
+.nursingPage>.content>.nursingCover>.patientApp>img,
+.nursingPage>.content>.nursingCover>.nurseApp>img,
+.nursingPage>.content>.nursingCover>.patientApp>.info,
+.nursingPage>.content>.nursingCover>.nurseApp>.info {
+    display: inline-block;
+}
+
+.nursingPage>.content>.nursingCover>.patientApp>.info,
+.nursingPage>.content>.nursingCover>.nurseApp>.info {
+    margin-left: 20px;
+}
+
+.nursingPage>.content>.nursingCover>.payApp {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>.payCover {
+    display: block;
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach>label,
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach>input,
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach>p {
+    display: inline-block;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach>label {
+    padding-top: 10px;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>.payCover>.payEach>input {
+    width: 85%;
+    height: 50px;
+    outline: none;
+    border: none;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border-radius: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.nursingPage>.content>.nursingCover>.payApp>input {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 15%;
+    height: 50px;
+    background-color: #FFB22C;
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}

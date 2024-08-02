@@ -57,7 +57,7 @@ function UserPage() {
                         <Route path='name' element={<NameChange />} />
                         <Route path='pay' element={<Pay />} />
                         <Route path='profile' element={<Profile />} />
-                        <Route path='list' element={<List />} />
+                        <Route path='list' element={<List user={user}/>} />
                         <Route path='recent' element={<Recent />} />
                         <Route path='myReview' element={<MyReviews />} />
                         <Route path='myPost' element={<MyPosts />} />
