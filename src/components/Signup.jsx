@@ -3,9 +3,6 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { baseUrl } from '../config/const';
 import "../style/Signup.css"
 
-// dummy
-import { tUser } from '../config/tmpUser';
-
 function Signup() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
