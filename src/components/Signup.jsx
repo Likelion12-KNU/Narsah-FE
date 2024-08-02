@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { baseUrl } from '../config/const';
 import "../style/Signup.css"
 
 // dummy
@@ -8,15 +9,41 @@ import { tUser } from '../config/tmpUser';
 function Signup() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
 
-    // 더미 데이터(tUser) 사용. BE와 연동시 수정
+    // BE 서버 탑재 후 테스트 요망
     const handleConfirm = (e) => {
-        // if (정보를 적절하게 입력했다면) {
-        //     alert("회원가입이 완료되었습니다.");
-        //     // login으로 이동
-        // } else {
-        //     alert("ID를/PW를 올바르게 입력해 주십시오.")
-        // }
+        e.preventDefault();        
+
+        if (id !== '' && password !== '' && password === passwordConfirm) {
+            fetch(`${baseUrl}/api/auth/register`,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: id,
+                        password: password,
+                        passwordConfirm: passwordConfirm
+                    })
+                }
+            ).then(response => {
+                if (response.ok) {
+                    console.log(response);
+                    return response.json();
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            }).then(jsonData => {
+                console.log(jsonData);
+            }).catch(error => {
+                console.log(error)
+            });
+
+        } else if (id == '' || password == ''){
+            alert("ID를/PW를 올바르게 입력해 주십시오.")
+        } else {
+            alert("비밀번호와 비밀번호 확인이 다릅니다.")
+        }
     }
 
     return (
@@ -33,6 +60,12 @@ function Signup() {
                 placeholder='PASSWORD'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+                type='password'
+                placeholder='PASSWORD CONFIRM'
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
             />
             <button
                 type='submit'
