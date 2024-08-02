@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react';
 import JobCard from './JobCard';
 import "../style/JobCardList.css"
 
-function JobCardList({unit, license, affiliation, location}) {
+function JobCardList({unit, license, affiliation, location, query}) {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const filteredCards = cards.filter(card =>
+        (card.unit.includes(unit) &&
+        (license === '' || card.license === license) &&
+        (affiliation === '' || card.affiliation === affiliation) &&
+        (location === '' || card.location.includes(location)))
+        || (card.license.includes(query) || card.affiliation.includes(query) 
+            || card.unit.includes(query) || card.location.includes(query))
+    );
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -26,14 +35,6 @@ function JobCardList({unit, license, affiliation, location}) {
         fetchPosts();
     }, []);
 
-    const filteredCards = cards.filter(card =>
-        card.unit.includes(unit) &&
-        (license === '' || card.license === license) &&
-        (affiliation === '' || card.affiliation === affiliation) &&
-        (location === '' || card.location.includes(location))
-    );
-
-
     if (loading)
         return <div>Loading...</div>;
     if (error)
@@ -51,7 +52,6 @@ function JobCardList({unit, license, affiliation, location}) {
                     license={card.license} 
                     affiliation={card.affiliation}
                     location={card.location}
-                    
                 />
             ))}
         </div>
