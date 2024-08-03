@@ -11,7 +11,6 @@ function List({ user }) {
     useEffect(() => {
         const fetchNurses = async () => {
             try {
-                console.log("Fetching nurses for user:", user); // 사용자 정보가 올바르게 로드되었는지 확인
                 const response = await axios.get(`http://localhost:3000/NursingApplication?patient=${user.name}`);
                 console.log("Fetched data:", response.data); // 응답 데이터를 로그로 확인
 
@@ -32,10 +31,6 @@ function List({ user }) {
         }
     }, [user]);
 
-
-    const handleLink = () => {
-        
-    }
 
     return (
         <div className='list'>

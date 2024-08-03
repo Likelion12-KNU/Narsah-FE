@@ -62,8 +62,8 @@ function UserPage() {
                         <Route path='myReview' element={<MyReviews />} />
                         <Route path='myPost' element={<MyPosts />} />
                         <Route path='myComments' element={<MyComments />} />
-                        <Route path='receivedApp' element={<ReceivedApp />} />
-                        <Route path='sentApp' element={<SentApp />} />
+                        <Route path='receivedApp' element={<ReceivedApp user={user}/>} />
+                        <Route path='sentApp' element={<SentApp user={user}/>} />
                         <Route path='receivedReview' element={<ReceivedReviews />} />
                     </Routes>
                 </div>

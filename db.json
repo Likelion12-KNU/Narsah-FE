@@ -95,6 +95,15 @@
   ],
   "JobCard": [
     {
+      "id": "4",
+      "title": "일자리 구합니다",
+      "author": "김간병",
+      "unit": "기관",
+      "license": "없음",
+      "affiliation": "있음",
+      "location": "서울 성북구"
+    },
+    {
       "id": "1",
       "title": "일자리 구합니다",
       "author": "홍길동",
@@ -120,15 +129,6 @@
       "license": "요양보호사",
       "affiliation": "있음",
       "location": "서울 강서구"
-    },
-    {
-      "id": "4",
-      "title": "일자리 구합니다",
-      "author": "김간병",
-      "unit": "기관",
-      "license": "없음",
-      "affiliation": "있음",
-      "location": "서울 성북구"
     }
   ],
   "nurse": [
@@ -178,6 +178,24 @@
       "period": "2024.08.01 부터 2024.08.20 까지",
       "place": "강원대학교병원",
       "state": 0
+    },
+    {
+      "id": "f36c",
+      "nurse": "김간병",
+      "patient": "김환자",
+      "pay": 40000,
+      "period": "2023.01.01 부터 20204.01.01 까지",
+      "place": "강원대학교병원",
+      "state": 0
+    },
+    {
+      "id": "aba0",
+      "nurse": "김간병",
+      "patient": "홍길동",
+      "pay": 4000,
+      "period": "2023.01.01 부터 20204.01.01 까지",
+      "place": "강원대학교병원",
+      "state": 0
     }
   ],
   "NursingProposal": [
@@ -187,10 +205,18 @@
       "patient": "홍길동",
       "period": "2024.04.01 부터 2025.01.01 까지",
       "place": "강원대학교병원",
-      "state": 0
+      "state": 1
     },
     {
       "id": "b803",
+      "nurse": "김간병",
+      "patient": "김환자",
+      "period": "2024.04.01 부터 2025.01.01 까지",
+      "place": "땡땡병원",
+      "state": 0
+    },
+    {
+      "id": "bb9c",
       "nurse": "김간병",
       "patient": "김환자",
       "period": "2024.04.01 부터 2025.01.01 까지",

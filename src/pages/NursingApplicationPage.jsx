@@ -74,6 +74,12 @@ function NursingApplicationPage() {
                     state: 0 // 0 신청대기, 1 간병중, 2 간병종료
                 });
                 console.log("post successful");
+
+                if (appState.proposalId != null) {
+                    await axios.patch(`http://localhost:3000/NursingProposal/${appState.proposalId}`, {
+                        state: 1
+                    });
+                }
                 alert("신청 완료 되었습니다.");
                 navigate("/user");
             } catch {
