@@ -96,7 +96,7 @@
   "JobCard": [
     {
       "id": "1",
-      "title": "간병사 모집",
+      "title": "일자리 구합니다",
       "author": "홍길동",
       "unit": "기관",
       "license": "없음",
@@ -105,7 +105,7 @@
     },
     {
       "id": "2",
-      "title": "개인 간병사 구함",
+      "title": "바로 근무 가능합니다",
       "author": "김철수",
       "unit": "개인",
       "license": "간병사",
@@ -114,12 +114,34 @@
     },
     {
       "id": "3",
-      "title": "개인 간병사 구함",
+      "title": "9월부터 간병 가능합니다",
       "author": "박땡땡",
       "unit": "기관",
       "license": "요양보호사",
       "affiliation": "있음",
       "location": "서울 강서구"
+    },
+    {
+      "id": "4",
+      "title": "일자리 구합니다",
+      "author": "김간병",
+      "unit": "기관",
+      "license": "없음",
+      "affiliation": "있음",
+      "location": "서울 성북구"
+    }
+  ],
+  "nurse": [
+    {
+      "id": 1,
+      "name": "김간병",
+      "age": 48,
+      "gender": "남자",
+      "location": "서울/경기/인천",
+      "introduce": "가족처럼, 최선을 다해 모시겠습니다.",
+      "license": "없음",
+      "career": "1년",
+      "nursingField": "재활, 암, 치매"
     }
   ],
   "user": [
@@ -129,6 +151,13 @@
       "password": "hkd1234",
       "name": "홍길동",
       "code": 0
+    },
+    {
+      "id": 2,
+      "userId": "sickness123",
+      "password": "idontknow",
+      "name": "김간병",
+      "code": 1
     }
   ],
   "NursingApplication": [
@@ -148,6 +177,24 @@
       "pay": 30000,
       "period": "2024.08.01 부터 2024.08.20 까지",
       "place": "강원대학교병원",
+      "state": 0
+    }
+  ],
+  "NursingProposal": [
+    {
+      "id": "1",
+      "nurse": "김간병",
+      "patient": "홍길동",
+      "period": "2024.04.01 부터 2025.01.01 까지",
+      "place": "강원대학교병원",
+      "state": 0
+    },
+    {
+      "id": "b803",
+      "nurse": "김간병",
+      "patient": "김환자",
+      "period": "2024.04.01 부터 2025.01.01 까지",
+      "place": "땡땡병원",
       "state": 0
     }
   ]

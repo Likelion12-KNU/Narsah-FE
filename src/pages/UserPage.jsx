@@ -25,7 +25,7 @@ function UserPage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/user?id=1`);
+                const response = await axios.get(`http://localhost:3000/user?id=2`);
                 if (response.data.length > 0) {
                     setUser(response.data[0]);
                 }

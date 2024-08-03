@@ -6,11 +6,21 @@ import "../style/JobCard.css"
 function JobCard({index, id, title, author, unit, license, affiliation, location }) {
     const navigate = useNavigate();
 
+    const nurse = {
+        id: id,
+        title: title,
+        author: author,
+        unit: unit,
+        license: license,
+        affiliation: affiliation,
+        location: location
+    }
+
     return (
         <div
             key={index}
             className='jobCard'
-            onClick={() => navigate(`/job/${id}`)}
+            onClick={() => navigate(`/nurseProfile?q=${author}`)}
         >
             <div className='cardContent'>
                 <img src={userOrange} alt="user" className='userIcon' />

@@ -13,6 +13,7 @@ import JobDetailPage from './pages/JobDetailPage' // 새로 추가된 페이지
 import NewPostPage from './pages/NewPostPage'
 import NursingApplicationPage from './pages/NursingApplicationPage'
 import NursingApplicationAcceptPage from './pages/NursingApplicationAcceptPage'
+import NursingPage from './pages/NursingPage'
 
 function App() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -38,6 +39,7 @@ function App() {
             <Route path="/jobOpening/newPost" element={<NewPostPage/>}/>
             <Route path="/application" element={<NursingApplicationPage/>}/>
             <Route path="/accept" element={<NursingApplicationAcceptPage/>}/>
+            <Route path="/nurseProfile" element={<NursingPage/>}/>
           </Routes>
         </div>
       </Router>

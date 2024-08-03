@@ -11,30 +11,30 @@ function UserProfile({name, userid, code}) {
     const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 관리하는 상태 변수
     const [user, setUser] = useState("");
 
-    useEffect(() => {
-        fetch(`${baseUrl}/api/auth/check-session`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" }
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Not logged in');
-                }
-            }).then(jsonData => {
-                setUser(jsonData.email);
-                setIsLoggedIn(true);
-                console.log(jsonData);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${baseUrl}/api/auth/check-session`,
+    //         {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" }
+    //         }).then(response => {
+    //             if (response.ok) {
+    //                 console.log(response);
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error('Not logged in');
+    //             }
+    //         }).then(jsonData => {
+    //             setUser(jsonData.email);
+    //             setIsLoggedIn(true);
+    //             console.log(jsonData);
+    //         }).catch(error => {
+    //             console.error("Fetch error: ", error);
+    //         });
+    // }, []);
 
-    if (!isLoggedIn) {
-        return <div>로그인해주세요</div>;
-    }
+    // if (!isLoggedIn) {
+    //     return <div>로그인해주세요</div>;
+    // }
 
     return (
         <div className="profile">

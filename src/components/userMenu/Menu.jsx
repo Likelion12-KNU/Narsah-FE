@@ -23,7 +23,7 @@ function Menu({code}) {
                 ) : (
                     <ul className='serviceMenu'>
                         <li><Link to="/user/profile">내 프로필</Link></li>
-                        <li><Link to="/user/receivedApp">받은 신청</Link></li>
+                        <li><Link to="/user/receivedApp">받은 제안</Link></li>
                         <li><Link to="/user/sentApp">보낸 신청</Link></li>
                         <li><Link to="/user/receivedReview">받은 리뷰</Link></li>
                         <li><Link to="/user/myComments">내가 쓴 댓글</Link></li>
