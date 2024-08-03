@@ -5,23 +5,22 @@ import linkImg from "../img/link.png"
 import "../style/Post.css"
 
 function Post({ id, author_name, title, content }) {
-
-  return (
-    <Link className='post' to={`/jobOpening/post?q=${id}`}>
-      <div className='title'>
-        <img src={profileImg} />
-        <div className='titleCover'>
-          <p>{author_name}</p>
-          <h1>{title}</h1>
-        </div>
-      </div>
-      <div className='postContent'>
-        <pre>{content}</pre>
-      </div>
-      <p>댓글</p>
-      <img src={linkImg} />
-    </Link>
-  )
+    return (
+        <Link className='post' to={`/jobOpening/post?q=${id}`}>
+            <div className='title'>
+                <img src={profileImg} />
+                <div className='titleCover'>
+                    <p>{author_name}</p>
+                    <h1>{title}</h1>
+                </div>
+            </div>
+            <div className='postContent'>
+                <pre>{content}</pre>
+            </div>
+            <p>댓글</p>
+            <img src={linkImg} />
+        </Link>
+    )
 }
 
 export default Post;

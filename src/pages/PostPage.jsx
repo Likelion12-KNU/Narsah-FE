@@ -7,6 +7,7 @@ import profileImg from "../img/profile.png";
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import delImg from "../img/del.png";
+import { baseUrl } from '../config/const';
 
 function PostPage() {
     const location = useLocation();
@@ -23,6 +24,55 @@ function PostPage() {
     const toJobCard = () => {
         navigate(`/job/${author.id}`);
     };
+  
+  
+// useEffect(() => {
+//     // 백엔드에서 게시글 데이터를 가져오는 함수
+//     const fetchPost = async () => {
+//         try {
+//             // Post 불러오기
+//             const response = await axios.get(`${baseUrl}/api/board/jobposting/${postId}`); // 구인 상세 게시판 api
+//             // 응답이 배열이라면 첫 번째 요소를 사용
+//             if (response.data.length > 0) {
+//                 setPost(response.data[0]);
+//             } else {
+//                 setPost(null);
+//             }
+
+//             // 댓글 불러오기
+//             const responseComment = await axios.get(`${baseUrl}/api/comment/${postId}`); // 게시판 ID에 포함되어 있는 댓글 보기 api
+//             if (responseComment.data.length > 0) {
+//                 setComments(responseComment.data);
+//             } else {
+//                 setComments([]);
+//             }
+//         } catch (err) {
+//             setError(err.message);
+//         }
+//     };
+
+//     fetchPost();
+// }, [postId]);
+
+// const delPost = async () => {
+//     try {
+//         // 댓글 삭제
+//         const responseComments = await axios.get(`${baseUrl}/api/comment/${postId}`); // 댓글 api
+//         const deleteCommentsPromises = responseComments.data.map(comment => 
+//             axios.delete(`${baseUrl}/api/comment/${comment.id}`) // 댓글 api
+//         );
+//         await Promise.all(deleteCommentsPromises);
+
+//         // 게시글 삭제
+//         await axios.delete(`${baseUrl}/api/board/jobposting/${postId}`);
+//         console.log("post and comments delete successful");
+//         navigate("/jobOpening");
+//     }
+//     catch (err) {
+//         console.log("fail to delete post or comments", err);
+//     }
+// };
+
 
     useEffect(() => {
         const fetchPostAndComments = async () => {
@@ -48,6 +98,7 @@ function PostPage() {
                 } else {
                     setPost(null);
                 }
+
             } catch (error) {
                 setError(error.message);
             } finally {
