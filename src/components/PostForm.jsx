@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../config/const';
 import "../style/PostForm.css";
 import axios from 'axios';
 
@@ -19,27 +20,15 @@ function PostForm({ author_name, type }) {
     const handlePostForm = async (e) => {
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
         try {
-            let url;
-            if (type === 'jobOpening') {
-                url = `${baseUrl}/api/board/jobposting`;
-            } else if (type === 'jobSearch') {
-                url = `${baseUrl}/api/board/jobsearch`;
-            }
-
-            await axios.post(url, {
+            await axios.post(`${baseUrl}/api/board/jobposting/create`, {
                 title: title,
-                content: contents,
-                author_name: author_name
+                contents: contents,
+                boardTag: "jobPosting"
             });
             console.log("post successful");
-
-            if (type === 'jobOpening') {
-                navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
-            } else if (type === 'jobSearch') {
-                navigate("/jobSearch"); // post 성공시 구직 게시물 페이지로 이동
-            }
-        } catch (error) {
-            console.log("fail to post", error);
+            navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
+        } catch (err) {
+            console.log("fail to post: ", err.message);
         }
     };
 

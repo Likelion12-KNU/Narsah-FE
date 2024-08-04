@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
+import { baseUrl } from '../config/const';
 import "../style/PostList.css"
 
-function PostList() {
+function PostList({query}) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -50,8 +51,8 @@ function PostList() {
                 }
                 const data = await response.json();
                 setPosts(data);
-            } catch (error) {
-                setError(error);
+            } catch(err) {
+                setError(err);
             } finally {
                 setLoading(false);
             }
@@ -59,6 +60,9 @@ function PostList() {
 
         fetchPosts();
     }, []);
+
+    // search filter
+    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
 
     if (loading) {
         return <div>Loading...</div>;
@@ -70,7 +74,7 @@ function PostList() {
 
     return (
         <div className='postList'>
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
                 <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.content} />
             ))}
         </div>
