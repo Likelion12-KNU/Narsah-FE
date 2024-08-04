@@ -10,6 +10,7 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8080', // API 서버 주소
         changeOrigin: true, // 호스트 헤더를 target URL로 변경
+        credentials: 'include',  // 쿠키를 포함시키기 위해 필요
         secure: false, // HTTPS 사용 시 true로 변경
         rewrite: (path) => path.replace(/^\/api/, '') // URL에서 '/api' 제거
       }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../style/MainPage.css";
 import leafImg from "../img/leaf.png";
-import {baseUrl} from "../config/const"
+import { baseUrl } from "../config/const"
 import jobOpeningImg from "../img/job_opening.png";
 import jobSearchImg from '../img/job_search.png';
 import linkImg from "../img/link.png";
@@ -14,12 +14,11 @@ function MainPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // fetch(`http://3.36.127.16:8080/api/auth/check-session`,
-        // fetch(`${baseUrl}/api/auth/check-session`,
-        fetch(`${baseUrl}/LoggedIn`,
+        console.log(document.cookie);
+        fetch(`${baseUrl}/api/auth/check-session`,
             {
                 method: "GET",
-                // credentials: 'include',
+                credentials: 'include',
                 headers: { "Content-Type": "application/json" }
             }).then(response => {
                 if (response.ok) {
@@ -29,16 +28,9 @@ function MainPage() {
                     throw new Error('Not logged in');
                 }
             }).then(jsonData => {
-
-                // dummy data addition code
-                if (jsonData != []) {
-                    throw new Error('Not logged in');
-                }
-                //
-                console.log(jsonData);
-                
-                setUser(jsonData.name);
+                setUser(jsonData.email);
                 setIsLoggedIn(true);
+                console.log(jsonData);
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });

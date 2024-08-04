@@ -14,10 +14,11 @@ function Bar() {
     };
 
     useEffect(() => {
-        // fetch(`${baseUrl}/api/auth/check-session`,
-        fetch(`${baseUrl}/LoggedIn`,
+        fetch(`${baseUrl}/api/auth/check-session`,
+        // fetch(`${baseUrl}/LoggedIn`,
             {
                 method: "GET",
+                credentials: 'include',
                 headers: { "Content-Type": "application/json" }
             }).then(response => {
                 if (response.ok) {
@@ -27,12 +28,12 @@ function Bar() {
                     throw new Error('Not logged in');
                 }
             }).then(jsonData => {
-                // dummy data addition code
-                if (jsonData != []) {
-                    throw new Error('Not logged in');
-                }
-                //
-                console.log(jsonData);
+                // // dummy data addition code
+                // if (jsonData != []) {
+                //     throw new Error('Not logged in');
+                // }
+                // //
+                // console.log(jsonData);
 
                 setUser(jsonData.email);
                 setIsLoggedIn(true);
