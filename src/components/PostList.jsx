@@ -42,14 +42,16 @@ function PostList({query}) {
     // }
 
     // 백엔드 연동되면 삭제
+    
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/post');
+                const response = await fetch(`${baseUrl}/post`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
+                console.log(data);
                 setPosts(data);
             } catch(err) {
                 setError(err);
