@@ -13,46 +13,19 @@ const Login = () => {
     // 더미 데이터(tUser) 사용. BE와 연동시 수정
     const handleConfirm = async (e) => {
         e.preventDefault();
-        // dummy data addition code
-        let tmplogin = null;
-        await fetch(`${baseUrl}/user`, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" }
-        }).then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        }).then(jsonData => {
-            // console.log(jsonData);
-            for (let i=0;i<jsonData.length;i++) {
-                if (jsonData[i].email == userid && jsonData[i].password == password)
-                    tmplogin = jsonData[i].email;
-
-                console.log(tmplogin)
-            }
-        }).catch(error => {
-            console.error("Fetch error: ", error);
-        });
-
-        // console.log(tmplogin)
-        if (tmplogin != null) {
-            
-        //  
-
-        await fetch(`${baseUrl}/LoggedIn`,
+        await fetch(`${baseUrl}/api/auth/login`,
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json"/*, "Cookie": document.cookie */ },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     email: userid,
                     password: password
-                })
+                }),
+                credentials: "include"
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
-                    // return response.json();
+                    return response.json();
                 } else {
                     throw new Error('Network response was not ok.');
                 }
@@ -63,14 +36,9 @@ const Login = () => {
             });
 
         // main으로 이동
-        // navi('/');
-        // window.location.reload()    // reload
-        
-        //
-        } else {
-            console.log("error");
-        }
-        //
+        navi('/');
+        window.location.reload()    // reload
+    
     }
 
 

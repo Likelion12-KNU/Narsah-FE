@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import { baseUrl } from '../config/const';
 import "../style/PostList.css"
+import axios from 'axios';
 
 function PostList({query}) {
     const [posts, setPosts] = useState([]);
@@ -46,19 +47,26 @@ function PostList({query}) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch(`${baseUrl}/post`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                const response = await axios.get(`${baseUrl}/api/board/jobposting/lists`, {
+                    params: {
+                        howMany: 100,
+                        pageNum: 0
+                },
+                withCredentials: true, // 자격 증명 포함
+                headers: {
+                    'Accept-Language': 'ko-KR',
+                    'Accept': '*/*',
+                    'Origin': 'http://nurspace-narsha.duckdns.org',
+                    'Referer': 'http://nurspace-narsha.duckdns.org/',
                 }
-                const data = await response.json();
-                console.log(data);
-                setPosts(data);
-            } catch(err) {
-                setError(err);
-            } finally {
+            });
+            setPosts(response.data);
+        } catch (err) {
+            setError(err);
+        } finally {
                 setLoading(false);
-            }
-        };
+        }
+    };
 
         fetchPosts();
     }, []);
