@@ -16,7 +16,7 @@ function JobSearchPage() {
                     <img src={jobSearchImg} alt="Job Search"/>
                     <h1>환자 찾기</h1>
                 </div>
-                <PostList />
+                <Filter/>
             </div>
             <Link to='/jobOpening/newPost'>
                 <img src={writeImg} alt="New Post"/>

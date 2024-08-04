@@ -31,6 +31,17 @@ function SearchPage() {
                 </div>
                 <Search />
             </div>
+            <div className='searchResult'>
+                <div className='searchJO'>
+                    <h1></h1>
+                </div>
+                <div className='searchJS'>
+
+                </div>
+                <div className='searchProfile'>
+
+                </div>
+            </div>
         </div>
     )
 }

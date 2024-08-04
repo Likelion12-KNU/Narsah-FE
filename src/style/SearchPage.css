@@ -163,3 +163,8 @@
     bottom: 0px;
     right: 69px;
 }
+
+.searchPage>.searchResult {
+    display: flex;
+    justify-content: space-between;
+}

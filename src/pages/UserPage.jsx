@@ -1,47 +1,75 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Bar from '../components/Bar';
 import UserProfile from '../components/UserProfile';
-import "../style/UserPage.css"
+import "../style/UserPage.css";
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Menu from '../components/userMenu/Menu';
+import PasswordChange from '../components/userMenu/PasswordChange';
+import NameChange from '../components/userMenu/NameChange';
+import Pay from '../components/userMenu/Pay';
+import Profile from '../components/userMenu/Profile';
+import List from '../components/userMenu/List';
+import Recent from '../components/userMenu/Recent';
+import MyReviews from '../components/userMenu/MyReviews';
+import MyPosts from '../components/userMenu/MyPosts';
+import MyComments from '../components/userMenu/MyComments';
+import ReceivedApp from '../components/userMenu/ReceivedApp';
+import SentApp from '../components/userMenu/SentApp';
+import ReceivedReviews from '../components/userMenu/ReceivedReviews';
 
 function UserPage() {
-    let name = "홍길동";
-    let userId = "gildong123";
-    let code = 1;   // dummy
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/user?id=2`);
+                if (response.data.length > 0) {
+                    setUser(response.data[0]);
+                }
+                else {
+                    setUser(null);
+                }
+            } catch (error) {
+                console.error("Failed to get user data:", error.response ? error.response.data : error.message);
+                alert("로그인 후 이용하세요.");
+                navigate("/login");
+            }
+        };
+        fetchUser();
+    }, [navigate]);
+
+    if (user == null) {
+        return <div>Loading...</div>; // 또는 로딩 스피너를 반환
+    }
 
     return (
         <div className='userPage'>
             <Bar />
             <div className='content'>
-                <UserProfile name={name} userid={userId} code={code} />
-
-                <div className='userMenu'>
-                    <ul className='accountSetting'>
-                        <li>비밀번호 변경</li>
-                        <li>닉네임 변경</li>
-                        <li>결제수단 관리</li>
-                    </ul>
-                    {code === 0 ? (
-                        <ul className='serviceMenu'>
-                            <li>환자 프로필</li>
-                            <li>간병 내역</li>
-                            <li>최근 간병인</li>
-                            <li>내가 쓴 리뷰</li>
-                            <li>내가 쓴 글</li>
-                            <li>내가 쓴 댓글</li>
-                        </ul>
-                    ) : (
-                        <ul className='serviceMenu'>
-                            <li>내 프로필</li>
-                            <li>받은 신청</li>
-                            <li>보낸 신청</li>
-                            <li>받은 리뷰</li>
-                            <li>내가 쓴 댓글</li>
-                        </ul>
-                    )}
+                <div className='userContent'>
+                    <UserProfile name={user.name} userid={user.userId} code={user.code} />
+                    <Routes>
+                        <Route path='' element={<Menu code={user.code} />} />
+                        <Route path='password' element={<PasswordChange id={user.id}/>} />
+                        <Route path='name' element={<NameChange />} />
+                        <Route path='pay' element={<Pay />} />
+                        <Route path='profile' element={<Profile />} />
+                        <Route path='list' element={<List user={user}/>} />
+                        <Route path='recent' element={<Recent />} />
+                        <Route path='myReview' element={<MyReviews />} />
+                        <Route path='myPost' element={<MyPosts />} />
+                        <Route path='myComments' element={<MyComments />} />
+                        <Route path='receivedApp' element={<ReceivedApp user={user}/>} />
+                        <Route path='sentApp' element={<SentApp user={user}/>} />
+                        <Route path='receivedReview' element={<ReceivedReviews />} />
+                    </Routes>
                 </div>
             </div>
         </div>
     );
-};
+}
 
 export default UserPage;

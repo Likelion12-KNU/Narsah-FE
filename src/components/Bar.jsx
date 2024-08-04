@@ -13,32 +13,32 @@ function Bar() {
         setMenuVisible(!menuVisible);
     };
 
-    useEffect(() => {
-        fetch(`${baseUrl}/api/auth/check-session`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" }
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Not logged in');
-                }
-            }).then(jsonData => {
-                setUser(jsonData.email);
-                setIsLoggedIn(true);
-                console.log(jsonData);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${baseUrl}/api/auth/check-session`,
+    //         {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" }
+    //         }).then(response => {
+    //             if (response.ok) {
+    //                 console.log(response);
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error('Not logged in');
+    //             }
+    //         }).then(jsonData => {
+    //             setUser(jsonData.email);
+    //             setIsLoggedIn(true);
+    //             console.log(jsonData);
+    //         }).catch(error => {
+    //             console.error("Fetch error: ", error);
+    //         });
+    // }, []);
 
-    const handleLogout = () => {
-        // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)  // 아직 구현 안 함
-        setIsLoggedIn(false);
-        window.location.reload()
-    };
+    // const handleLogout = () => {
+    //     // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)  // 아직 구현 안 함
+    //     setIsLoggedIn(false);
+    //     window.location.reload()
+    // };
 
     return (
         <div className='navBar'>

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-import "../style/JobDetailPage.css"; 
+import "../style/JobDetailPage.css";
 import Patient from '../components/Patient';
+import Bar from '../components/Bar';
 
 // db에 구현
 const jobDetails = [
@@ -57,22 +58,25 @@ function JobDetailPage() {
 
   return (
     <div className="jobDetailPage">
-      <Patient      
-        id={jobDetail.id}
-        name={jobDetail.name}
-        age={jobDetail.age}
-        height={jobDetail.height}
-        weight={jobDetail.weight}
-        gender={jobDetail.gender}
-        careLocation={jobDetail.careLocation}
-        carePeriod={jobDetail.carePeriod}
-        diagnosis={jobDetail.diagnosis}
-        hospitalizationPurpose={jobDetail.hospitalizationPurpose}
-        roomType={jobDetail.roomType}
-        mobilityStatus={jobDetail.mobilityStatus}
-        assistiveDevices={jobDetail.assistiveDevices}
-        medications={jobDetail.medications}
-      />
+      <Bar />
+      <div className='content'>
+        <Patient
+          id={jobDetail.id}
+          name={jobDetail.name}
+          age={jobDetail.age}
+          height={jobDetail.height}
+          weight={jobDetail.weight}
+          gender={jobDetail.gender}
+          careLocation={jobDetail.careLocation}
+          carePeriod={jobDetail.carePeriod}
+          diagnosis={jobDetail.diagnosis}
+          hospitalizationPurpose={jobDetail.hospitalizationPurpose}
+          roomType={jobDetail.roomType}
+          mobilityStatus={jobDetail.mobilityStatus}
+          assistiveDevices={jobDetail.assistiveDevices}
+          medications={jobDetail.medications}
+        />
+      </div>
     </div>
   );
 }

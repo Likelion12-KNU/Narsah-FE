@@ -1,4 +1,5 @@
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import userOrange from '../img/user_orange.png';
 import "../style/Patient.css";
 
@@ -18,6 +19,21 @@ function Patient({
     assistiveDevices,
     medications
 }) {
+    const navigate = useNavigate();
+
+    // 임시데이터 나중에 백엔드에서 로그인된 유저 받아오면 추후 구현
+    const appState = {
+        patient: name,
+        nurse: '김간병',
+        period: carePeriod,
+        place: careLocation
+    };
+
+    const handleApp = async () => {
+        // 백엔드 연동시 세션에서 유저 정보를 받아와 
+        // 유저가 "환자"일 시 alert("권한이 없습니다") 실행
+        navigate("/application", { state: appState });
+    };
 
     return (
         <div className="detailCard">
@@ -35,7 +51,6 @@ function Patient({
                         <li><span>장소</span> <strong>{careLocation}</strong></li>
                     </ul>
                 </div>
-
             </div>
             <div className="detailInfo">
                 <h3>세부 정보</h3>
@@ -61,8 +76,9 @@ function Patient({
                     <span>복용 약</span> <strong>{medications}</strong>
                 </div>
             </div>
+            <button onClick={handleApp}>간병 신청</button>
         </div>
-    )
+    );
 }
 
 export default Patient;
