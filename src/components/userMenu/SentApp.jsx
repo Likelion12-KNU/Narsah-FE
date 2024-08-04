@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { baseUrl } from '../../config/const';
 import "../../style/SentApp.css"
 
 function SentApp({user}) {
@@ -12,7 +13,7 @@ function SentApp({user}) {
     useEffect(() => {
         const fetchPatients = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/NursingApplication?nurse=${user.name}`);
+                const response = await axios.get(`${baseUrl}/NursingApplication?nurse=${user.name}`);
 
                 if (response.data.length > 0) {
                     setPatients(response.data);

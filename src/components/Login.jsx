@@ -6,21 +6,22 @@ import { baseUrl } from '../config/const';
 import { tUser } from '../config/tmpUser'
 
 const Login = () => {
-    const [id, setId] = useState("");
+    const [userid, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const navi = useNavigate();
 
     // 더미 데이터(tUser) 사용. BE와 연동시 수정
-    const handleConfirm = (e) => {
+    const handleConfirm = async (e) => {
         e.preventDefault();
-        fetch(`${baseUrl}/api/auth/login`,
+        await fetch(`${baseUrl}/api/auth/login`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    email: id,
+                    email: userid,
                     password: password
-                })
+                }),
+                credentials: "include"
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
@@ -37,7 +38,7 @@ const Login = () => {
         // main으로 이동
         navi('/');
         window.location.reload()    // reload
-        
+    
     }
 
 
@@ -48,8 +49,8 @@ const Login = () => {
                 <input
                     type='text'
                     placeholder='ID'
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
+                    value={userid}
+                    onChange={(e) => setUserId(e.target.value)}
                 />
                 <input
                     type='password'

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../style/MainPage.css";
 import leafImg from "../img/leaf.png";
-import {baseUrl} from "../config/const"
+import { baseUrl } from "../config/const"
 import jobOpeningImg from "../img/job_opening.png";
 import jobSearchImg from '../img/job_search.png';
 import linkImg from "../img/link.png";
@@ -14,9 +14,11 @@ function MainPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log(document.cookie);
         fetch(`${baseUrl}/api/auth/check-session`,
             {
-                method: "POST",
+                method: "GET",
+                credentials: 'include',
                 headers: { "Content-Type": "application/json" }
             }).then(response => {
                 if (response.ok) {
@@ -40,8 +42,24 @@ function MainPage() {
     };
 
     const handleLogout = () => {
-        // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)  // 아직 구현 안 함
-        setIsLoggedIn(false);
+        fetch(`${baseUrl}/api/auth/logout`,
+            {
+                method: "POST",
+                credentials: 'include',
+                headers: { "Content-Type": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    console.log(response);
+                    return response.json();
+                } else {
+                    throw new Error('Not logged in');
+                }
+            }).then(jsonData => {
+                setUser("");
+                setIsLoggedIn(false);
+            }).catch(error => {
+                console.error("Fetch error: ", error);
+            });
         window.location.reload()
     };
 

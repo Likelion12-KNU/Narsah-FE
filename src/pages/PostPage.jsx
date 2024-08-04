@@ -77,19 +77,19 @@ function PostPage() {
     useEffect(() => {
         const fetchPostAndComments = async () => {
             try {
-                const responsePost = await axios.get(`http://localhost:3000/post?id=${postId}`);
+                const responsePost = await axios.get(`${baseUrl}/post?id=${postId}`);
                 if (responsePost.data.length > 0) {
                     const postData = responsePost.data[0];
                     setPost(postData);
 
-                    const responseComment = await axios.get(`http://localhost:3000/comment?post_id=${postId}`);
+                    const responseComment = await axios.get(`${baseUrl}/comment?post_id=${postId}`);
                     if (responseComment.data.length > 0) {
                         setComments(responseComment.data);
                     } else {
                         setComments([]);
                     }
 
-                    const responseAuthor = await axios.get(`http://localhost:3000/JobCard?author=${postData.author_name}`);
+                    const responseAuthor = await axios.get(`${baseUrl}/JobCard?author=${postData.author_name}`);
                     if (responseAuthor.data.length > 0) {
                         setAuthor(responseAuthor.data[0]);
                     } else {
@@ -111,13 +111,13 @@ function PostPage() {
 
     const delPost = async () => {
         try {
-            const responseComments = await axios.get(`http://localhost:3000/comment?post_id=${postId}`);
+            const responseComments = await axios.get(`${baseUrl}/comment?post_id=${postId}`);
             const deleteCommentsPromises = responseComments.data.map(comment =>
-                axios.delete(`http://localhost:3000/comment/${comment.id}`)
+                axios.delete(`${baseUrl}/comment/${comment.id}`)
             );
             await Promise.all(deleteCommentsPromises);
 
-            await axios.delete(`http://localhost:3000/post/${postId}`);
+            await axios.delete(`${baseUrl}/post/${postId}`);
             navigate("/jobOpening");
             console.log("post and comments delete successful");
         } catch (error) {

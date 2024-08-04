@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import Bar from '../components/Bar';
+import { baseUrl } from '../config/const';
 import profileImg from "../img/profile.png";
 import "../style/NursingApplicationPage.css"
 
@@ -65,7 +66,7 @@ function NursingApplicationPage() {
         }
         else {
             try {
-                const re = await axios.post('http://localhost:3000/NursingApplication', {
+                await axios.post('${baseUrl}/NursingApplication', {
                     nurse: appState.nurse,
                     patient: appState.patient,
                     pay: pay,
@@ -76,7 +77,7 @@ function NursingApplicationPage() {
                 console.log("post successful");
 
                 if (appState.proposalId != null) {
-                    await axios.patch(`http://localhost:3000/NursingProposal/${appState.proposalId}`, {
+                    await axios.patch(`${baseUrl}/NursingProposal/${appState.proposalId}`, {
                         state: 1
                     });
                 }
@@ -84,6 +85,7 @@ function NursingApplicationPage() {
                 navigate("/user");
             } catch {
                 alert("신청 실패, 다시 시도하세요");
+                // window.location.reload()
             }
         }
     };

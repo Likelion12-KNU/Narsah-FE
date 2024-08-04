@@ -19,7 +19,7 @@ const OfferProfilePage = () => {
   useEffect(() => {
     const fetchOffer = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/offer?id=${offerId}`);
+        const response = await axios.get(`${baseUrl}/offer?id=${offerId}`);
         if (response.data.length > 0) {
           setOffer(response.data[0]);
         } else {
@@ -37,7 +37,7 @@ const OfferProfilePage = () => {
 
   const delOffer = async () => {
     try {
-      await axios.delete(`http://localhost:3000/offer/${offerId}`);
+      await axios.delete(`${baseUrl}/offer/${offerId}`);
       navigate("/jobOpening");
       console.log("Offer deleted successfully");
     } catch (error) {

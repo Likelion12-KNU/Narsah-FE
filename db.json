@@ -47,12 +47,6 @@
       "title": "21:05",
       "content": "게시물 작성\n작성....",
       "author_name": "익명"
-    },
-    {
-      "id": "5f66",
-      "title": "서울",
-      "content": "에 집이 있으면 좋겠다",
-      "author_name": "익명"
     }
   ],
   "comment": [
@@ -147,14 +141,14 @@
   "user": [
     {
       "id": "1",
-      "userId": "hong1234",
+      "email": "hong1234",
       "password": "hkd1234",
       "name": "홍길동",
       "code": 0
     },
     {
       "id": 2,
-      "userId": "sickness123",
+      "email": "sickness123",
       "password": "idontknow",
       "name": "김간병",
       "code": 1
@@ -230,6 +224,93 @@
       "period": "2024.04.01 부터 2025.01.01 까지",
       "place": "땡땡병원",
       "state": 0
+    }
+  ],
+  "LoggedIn": [
+    {
+      "id": "268e",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "9185",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "b21f",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "d582",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "d53d",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "0f95",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "de96",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "2ed4",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "b96a",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "eb8e",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "9460",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "cb9b",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "53a2",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "0d64",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "8979",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "6c64",
+      "email": "hong1234",
+      "password": "hkd1234"
+    },
+    {
+      "id": "c93f",
+      "email": "hong1234",
+      "password": "hkd1234"
     }
   ]
 }

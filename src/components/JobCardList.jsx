@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import JobCard from './JobCard';
+import { baseUrl } from '../config/const';
 import "../style/JobCardList.css"
 
 function JobCardList({unit, license, affiliation, location, query}) {
@@ -19,7 +20,7 @@ function JobCardList({unit, license, affiliation, location, query}) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/JobCard');
+                const response = await fetch(`${baseUrl}/JobCard`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

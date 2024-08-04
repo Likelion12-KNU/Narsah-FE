@@ -2,6 +2,7 @@ import React from 'react';
 import Bar from '../components/Bar';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../config/const';
 import profileImg from "../img/profile.png";
 import "../style/NursingApplicationAcceptPage.css"
 
@@ -13,7 +14,7 @@ function NursingApplicationAcceptPage() {
     const start = async (event) => {
         event.preventDefault();
         try {
-            await axios.patch(`http://localhost:3000/NursingApplication/${appInfo.id}`, {
+            await axios.patch(`${baseUrl}/NursingApplication/${appInfo.id}`, {
                 state: 1
             });
             alert("'간병중'으로 상태 변경되었습니다.");
@@ -26,7 +27,7 @@ function NursingApplicationAcceptPage() {
     const refuse = async (event) => {
         event.preventDefault();
         try {
-            await axios.delete(`http://localhost:3000/NursingApplication/${appInfo.id}`);
+            await axios.delete(`${baseUrl}/NursingApplication/${appInfo.id}`);
             alert("간병 신청 거절을 완료했습니다.");
             navigate("/user/list");
         } catch (error) {
@@ -37,7 +38,7 @@ function NursingApplicationAcceptPage() {
     const end = async (event) => {
         event.preventDefault();
         try {
-            await axios.patch(`http://localhost:3000/NursingApplication/${appInfo.id}`, {
+            await axios.patch(`${baseUrl}/NursingApplication/${appInfo.id}`, {
                 state: 2
             });
             alert("'간병 완료'로 상태 변경되었습니다.");
@@ -48,7 +49,7 @@ function NursingApplicationAcceptPage() {
     }
 
     const review = async (event) => {
-        //누가 구현좀 넘 힘드러......
+        //누가 구현좀 넘 힘드러......   // 요건 일단 패스..
     }
 
     return (

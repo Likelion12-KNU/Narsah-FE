@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Link, Route, BrowserRouter as Router, Routes, useNavigate} from 'react-router-dom'
 import { baseUrl } from '../config/const';
 import "../style/Signup.css"
 
@@ -7,8 +7,8 @@ function Signup() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const navi = useNavigate();
 
-    // BE 서버 탑재 후 테스트 요망
     const handleConfirm = (e) => {
         e.preventDefault();        
 
@@ -32,6 +32,7 @@ function Signup() {
                 }
             }).then(jsonData => {
                 console.log(jsonData);
+                navi("/login");
             }).catch(error => {
                 console.log(error)
             });
