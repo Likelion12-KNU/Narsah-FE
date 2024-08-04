@@ -14,11 +14,17 @@ function MainPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log("origin "+document.cookie);
+        document.cookie = "name=test"
+        console.log("test "+document.cookie);
+        // fetch(`http://3.36.127.16:8080/api/auth/check-session`,
         fetch(`${baseUrl}/api/auth/check-session`,
             {
-                method: "POST",
+                method: "GET",
+                // credentials: 'include',
                 headers: { "Content-Type": "application/json" }
             }).then(response => {
+                // console.log(response);
                 if (response.ok) {
                     console.log(response);
                     return response.json();
