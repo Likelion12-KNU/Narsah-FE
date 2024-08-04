@@ -42,8 +42,24 @@ function MainPage() {
     };
 
     const handleLogout = () => {
-        // 로그아웃 로직 추가 (예: 인증 상태 해제, 로컬 스토리지에서 토큰 삭제 등)  // 아직 구현 안 함
-        setIsLoggedIn(false);
+        fetch(`${baseUrl}/api/auth/logout`,
+            {
+                method: "POST",
+                credentials: 'include',
+                headers: { "Content-Type": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    console.log(response);
+                    return response.json();
+                } else {
+                    throw new Error('Not logged in');
+                }
+            }).then(jsonData => {
+                setUser("");
+                setIsLoggedIn(false);
+            }).catch(error => {
+                console.error("Fetch error: ", error);
+            });
         window.location.reload()
     };
 
