@@ -1,0 +1,44 @@
+.userMenu {
+    width: 100%;
+}
+
+.userMenu>.accountSetting,
+.userMenu>.serviceMenu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+.userMenu>.accountSetting>li,
+.userMenu>.serviceMenu>li {
+    height: 50px;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
+    font-family: 'Pretendard';
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+}
+
+.userMenu>.accountSetting>li>a,
+.userMenu>.serviceMenu>li>a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+}
+
+
+.userMenu>.accountSetting>li:last-child,
+.userMenu>.serviceMenu>li:last-child {
+    border-bottom: none;
+}
+
+.userMenu>.accountSetting>li:hover,
+.userMenu>.serviceMenu>li:hover {
+    background-color: #e0e0e0;
+}

@@ -41,6 +41,7 @@
 
 .postPage>.content>.post>.title>img {
     display: inline-block;
+    cursor: pointer;
 }
 
 .postPage>.content>.post>.title>.titleCover {

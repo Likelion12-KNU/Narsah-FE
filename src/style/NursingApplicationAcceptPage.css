@@ -1,0 +1,110 @@
+.acceptPage>.content>.acceptCover {
+    width: 90%;
+    padding: 50px;
+    border-radius: 20px;
+    border: 2px solid #FFB22C;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.acceptPage>.content>.acceptCover>.patient,
+.acceptPage>.content>.acceptCover>.nurse {
+    padding-bottom: 20px;
+}
+
+.acceptPage>.content>.acceptCover>.patient {
+    border-bottom: #FFB22C solid 2px;
+    margin-bottom: 20px;
+}
+
+.acceptPage>.content>.acceptCover>.patient>img,
+.acceptPage>.content>.acceptCover>.nurse>img,
+.acceptPage>.content>.acceptCover>.patient>.info,
+.acceptPage>.content>.acceptCover>.nurse>.info {
+    display: inline-block;
+}
+
+.acceptPage>.content>.acceptCover>.patient>.info,
+.acceptPage>.content>.acceptCover>.nurse>.info {
+    margin-left: 20px;
+}
+
+.acceptPage>.content>.acceptCover>.pay {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+}
+
+.acceptPage>.content>.acceptCover>.pay>.payCover {
+    display: block;
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach>label,
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach>input,
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach>p {
+    display: inline-block;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach>label {
+    padding-top: 10px;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.payCover>.payEach>input {
+    width: 85%;
+    height: 50px;
+    outline: none;
+    border: none;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border-radius: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.choice {
+    width: 15%;
+}
+
+.acceptPage>.content>.acceptCover>.pay>.choice>button {
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #FFB22C;
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+}

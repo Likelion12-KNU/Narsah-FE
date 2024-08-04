@@ -1,14 +1,14 @@
-.detailCard {
-    box-sizing: border-box;
+.nursingPage>.content>.detailCard {
     width: 100%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin: 50px auto;
     position: relative;
 }
 
-.userHeader {
+.nursingPage>.content>.userHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,23 +18,23 @@
     margin-bottom: 20px;
 }
 
-.userInfo {
+.nursingPage>.content>.userInfo {
     width: 100%;
     display: flex;
 }
 
-.userInfo .userIcon {
+.nursingPage>.content>.userInfo>.userIcon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-right: 20px;
 }
 
-.userInfo>div {
+.nursingPage>.content>.userInfo>div {
     padding-top: 26px;
 }
 
-.userInfo h2 {
+.nursingPage>.content>.userInfo>h2 {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -42,17 +42,17 @@
     color: #333;
 }
 
-.userAttributes {
+.nursingPage>.content>.userAttributes {
     margin: 20px 0 0 0;
 }
 
-.userAttributes ul {
+.nursingPage>.content>.userAttributes>ul {
     list-style: none;
     padding: 0;
     margin: 10px 0 0 0;
 }
 
-.userAttributes li {
+.nursingPage>.content>.userAttributes>li {
     width: 140px;
     display: inline-block;
     font-size: 18px;
@@ -61,16 +61,16 @@
     margin-bottom: 5px;
 }
 
-.userAttributes li>span {
+.nursingPage>.content>.userAttributes>li>span {
     display: block;
 }
 
-.userAttributes li>strong {
+.nursingPage>.content>.userAttributes>li>strong {
     font-size: 20px;
     color: #333;
 }
 
-.detailInfo>h3 {
+.nursingPage>.content>.detailInfo>h3 {
     margin-top: 0;
     padding-bottom: 15px;
     text-align: center;
@@ -79,22 +79,22 @@
     border-bottom: 1px solid #eee;
 }
 
-.detailInfo>.detailItem {
+.nursingPage>.content>.detailInfo>.detailItem {
     font-size: 18px;
     color: #555;
     margin: 5px 0;
 }
 
-.detailInfo strong {
+.nursingPage>.content>.detailInfo>strong {
     color: #000;
 }
 
-.detailItem {
+.nursingPage>.content>.detailItem {
     margin: auto;
     padding: 5px;
 }
 
-.detailItem>span {
+.nursingPage>.content>.detailItem>span {
     margin: 10px auto;
     display: block;
     width: 90%;
@@ -102,7 +102,7 @@
     text-align: center;
 }
 
-.detailItem>strong {
+.nursingPage>.content>.detailItem>strong {
     margin: auto;
     display: block;
     width: 90%;
@@ -113,7 +113,7 @@
     text-align: center;
 }
 
-.detailCard>button {
+.nursingPage>.content>.detailCard>button {
     border-radius: 10px;
     background-color: #FFB22C;
     color: white;

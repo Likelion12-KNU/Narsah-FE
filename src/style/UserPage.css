@@ -16,40 +16,10 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-
-.userMenu {
+.userPage>.content>.userContent {
     width: 100%;
 }
 
-.accountSetting,
-.serviceMenu {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    background-color: #f1f1f1; /* Light gray background for the lists */
-    border-radius: 8px;
-}
-
-.accountSetting li,
-.serviceMenu li {
-    height : 50px;
-    padding : 16px;
-    border-bottom: 1px solid #e0e0e0;
-
-    color: #555;
-    font-family: 'Pretendard';
-    font-size: 18px;
-    letter-spacing: -0.01em;
-    cursor: pointer;
-}
-.accountSetting li:last-child,
-.serviceMenu li:last-child {
-    border-bottom: none;
-}
-
-.accountSetting li:hover,
-.serviceMenu li:hover {
-    background-color: #e0e0e0; /* Slightly darker gray on hover */
-}
