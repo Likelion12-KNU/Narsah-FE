@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { baseUrl } from '../../config/const';
 import "../../style/List.css"
 
 function List({ user }) {
@@ -11,7 +12,7 @@ function List({ user }) {
     useEffect(() => {
         const fetchNurses = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/NursingApplication?patient=${user.name}`);
+                const response = await axios.get(`${baseUrl}/NursingApplication?patient=${user.name}`);
                 console.log("Fetched data:", response.data); // 응답 데이터를 로그로 확인
 
                 if (response.data.length > 0) {

@@ -13,10 +13,38 @@ const Login = () => {
     // 더미 데이터(tUser) 사용. BE와 연동시 수정
     const handleConfirm = async (e) => {
         e.preventDefault();
-        await fetch(`${baseUrl}/api/auth/login`,
+        // dummy data addition code
+        let tmplogin = null;
+        await fetch(`${baseUrl}/user`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        }).then(jsonData => {
+            // console.log(jsonData);
+            for (let i=0;i<jsonData.length;i++) {
+                if (jsonData[i].email == userid && jsonData[i].password == password)
+                    tmplogin = jsonData[i].email;
+
+                console.log(tmplogin)
+            }
+        }).catch(error => {
+            console.error("Fetch error: ", error);
+        });
+
+        // console.log(tmplogin)
+        if (tmplogin != null) {
+            
+        //  
+
+        await fetch(`${baseUrl}/LoggedIn`,
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json", "Cookie": document.cookie },
+                headers: { "Content-Type": "application/json"/*, "Cookie": document.cookie */ },
                 body: JSON.stringify({
                     email: userid,
                     password: password
@@ -35,9 +63,14 @@ const Login = () => {
             });
 
         // main으로 이동
-        navi('/');
-        window.location.reload()    // reload
+        // navi('/');
+        // window.location.reload()    // reload
         
+        //
+        } else {
+            console.log("error");
+        }
+        //
     }
 
 

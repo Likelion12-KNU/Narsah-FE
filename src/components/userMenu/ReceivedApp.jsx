@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../../config/const';
 import "../../style/ReceivedApp.css"
 
 function ReceivedApp({ user }) {
@@ -17,7 +18,7 @@ function ReceivedApp({ user }) {
 
     const fetchPatients = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/NursingProposal?nurse=${user.name}`);
+            const response = await axios.get(`${baseUrl}/NursingProposal?nurse=${user.name}`);
 
             if (response.data.length > 0) {
                 setPatients(response.data);

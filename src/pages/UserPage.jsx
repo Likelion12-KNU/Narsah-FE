@@ -17,6 +17,7 @@ import MyComments from '../components/userMenu/MyComments';
 import ReceivedApp from '../components/userMenu/ReceivedApp';
 import SentApp from '../components/userMenu/SentApp';
 import ReceivedReviews from '../components/userMenu/ReceivedReviews';
+import { baseUrl } from '../config/const';
 
 function UserPage() {
     const [user, setUser] = useState(null);
@@ -25,7 +26,7 @@ function UserPage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/user?id=2`);
+                const response = await axios.get(`${baseUrl}/user?id=2`);   // dummy
                 if (response.data.length > 0) {
                     setUser(response.data[0]);
                 }
