@@ -32,6 +32,7 @@ function Signup() {
                 }
             }).then(jsonData => {
                 console.log(jsonData);
+            }).then(() => {
                 navi("/login");
             }).catch(error => {
                 console.log(error)
