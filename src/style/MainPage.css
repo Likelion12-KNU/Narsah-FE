@@ -131,7 +131,7 @@
 .mainPage>.yellow>.nav>.navElement.logoutButton {
     background-color: #F3FEB8; 
     color: #FFB22C; 
-    font-size: 17px;
+    border: none;
 }
 
 .mainPage>.yellow>.nav>.navElement:nth-child(1) {

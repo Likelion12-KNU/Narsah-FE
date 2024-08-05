@@ -86,7 +86,7 @@ function MainPage() {
                     {isLoggedIn ? (
                         <>
                             <button className='navElement.logoutButton' onClick={handleLogout}>
-                                LOG OUT
+                                LOGOUT
                             </button>
                             <Link className='navElement' to="/user">
                                 USER
