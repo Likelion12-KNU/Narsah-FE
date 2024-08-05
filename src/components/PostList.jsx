@@ -4,7 +4,7 @@ import { baseUrl } from '../config/const';
 import "../style/PostList.css"
 import axios from 'axios';
 
-function PostList({query}) {
+function PostList({ query }) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -43,7 +43,7 @@ function PostList({query}) {
     // }
 
     // 백엔드 연동되면 삭제
-    
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
@@ -51,22 +51,22 @@ function PostList({query}) {
                     params: {
                         howMany: 100,
                         pageNum: 0
-                },
-                withCredentials: true, // 자격 증명 포함
-                headers: {
-                    'Accept-Language': 'ko-KR',
-                    'Accept': '*/*',
-                    'Origin': 'http://nurspace-narsha.duckdns.org',
-                    'Referer': 'http://nurspace-narsha.duckdns.org/',
-                }
-            });
-            setPosts(response.data);
-        } catch (err) {
-            setError(err);
-        } finally {
+                    },
+                    withCredentials: true, // 자격 증명 포함
+                    headers: {
+                        'Accept-Language': 'ko-KR',
+                        'Accept': '*/*',
+                        'Origin': 'http://nurspace-narsha.duckdns.org',
+                        'Referer': 'http://nurspace-narsha.duckdns.org/',
+                    }
+                });
+                setPosts(response.data);
+            } catch (err) {
+                setError(err);
+            } finally {
                 setLoading(false);
-        }
-    };
+            }
+        };
 
         fetchPosts();
     }, []);
