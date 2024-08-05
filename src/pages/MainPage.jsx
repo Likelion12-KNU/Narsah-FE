@@ -45,7 +45,7 @@ function MainPage() {
         fetch(`${baseUrl}/api/auth/logout`,
             {
                 method: "POST",
-                credentials: 'include',
+                withCredentials: 'include',
                 headers: { "Content-Type": "application/json" },
                 body: {}
             }).then(response => {
