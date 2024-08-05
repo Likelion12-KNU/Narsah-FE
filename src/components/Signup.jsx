@@ -28,7 +28,6 @@ function Signup() {
                     console.log(response);
                     return response.json();
                 } else {
-                    alert("다시 시도하세요");
                     throw new Error('Network response was not ok.');
                 }
             }).then(jsonData => {
