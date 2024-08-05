@@ -77,12 +77,12 @@ function PostPage() {
     useEffect(() => {
         const fetchPostAndComments = async () => {
             try {
-                const responsePost = await axios.get(`${baseUrl}/post?id=${postId}`);
+                const responsePost = await axios.get(`${baseUrl}/api/board/jobposting/${postId}`);
                 if (responsePost.data.length > 0) {
                     const postData = responsePost.data[0];
                     setPost(postData);
 
-                    const responseComment = await axios.get(`${baseUrl}/comment?post_id=${postId}`);
+                    const responseComment = await axios.get(`${baseUrl}/api/comment/${postId}`);
                     if (responseComment.data.length > 0) {
                         setComments(responseComment.data);
                     } else {
@@ -111,13 +111,13 @@ function PostPage() {
 
     const delPost = async () => {
         try {
-            const responseComments = await axios.get(`${baseUrl}/comment?post_id=${postId}`);
+            const responseComments = await axios.get(`${baseUrl}/api/comment/${postId}`);
             const deleteCommentsPromises = responseComments.data.map(comment =>
-                axios.delete(`${baseUrl}/comment/${comment.id}`)
+                axios.delete(`${baseUrl}/api/comment/${comment.id}`)
             );
             await Promise.all(deleteCommentsPromises);
 
-            await axios.delete(`${baseUrl}/post/${postId}`);
+            await axios.delete(`${baseUrl}/api/board/${postId}`);
             navigate("/jobOpening");
             console.log("post and comments delete successful");
         } catch (error) {
