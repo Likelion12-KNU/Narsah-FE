@@ -27,12 +27,9 @@ function Signup() {
                 if (response.ok) {
                     navi("/login");
                     console.log(response);
-                    return response.json();
                 } else {
                     throw new Error('Network response was not ok.');
                 }
-            }).then(jsonData => {
-                console.log(jsonData);
             }).catch(error => {
                 console.log(error);
             });
