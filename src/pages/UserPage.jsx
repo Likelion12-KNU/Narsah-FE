@@ -26,7 +26,7 @@ function UserPage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`${baseUrl}/user?id=2`);   // dummy
+                const response = await axios.get(`${baseUrl}/api/auth/check-session`);
                 if (response.data.length > 0) {
                     setUser(response.data[0]);
                 }
