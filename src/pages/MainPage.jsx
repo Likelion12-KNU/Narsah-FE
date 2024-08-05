@@ -51,13 +51,13 @@ function MainPage() {
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
+                    setIsLoggedIn(false);
                     return response.json();
                 } else {
                     throw new Error('Not logged in');
                 }
             }).then(jsonData => {
                 setUser("");
-                setIsLoggedIn(false);
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });

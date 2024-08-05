@@ -25,15 +25,15 @@ function Signup() {
                 }
             ).then(response => {
                 if (response.ok) {
-                    console.log(response);
+                    console.log(response.ok);
+                    console.log(2)
                     return response.json();
                 } else {
                     throw new Error('Network response was not ok.');
                 }
             }).then(jsonData => {
                 console.log(jsonData);
-            }).then(() => {
-                navi("/login");
+                // navi("/login");
             }).catch(error => {
                 console.log(error)
             });
