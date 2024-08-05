@@ -25,6 +25,7 @@ function Signup() {
                 }
             ).then(response => {
                 if (response.ok) {
+                    navi("/login");
                     console.log(response);
                     return response.json();
                 } else {
@@ -32,7 +33,6 @@ function Signup() {
                 }
             }).then(jsonData => {
                 console.log(jsonData);
-                navi("/login");
             }).catch(error => {
                 console.log(error);
             });
