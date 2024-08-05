@@ -3,7 +3,6 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Bar from '../components/Bar';
 import Filter from '../components/Filter';
 import "../style/JobSearchPage.css";
-import PostList from '../components/PostList';
 import jobSearchImg from "../img/job_search.png";
 import writeImg from "../img/pencil.png";
 import PostListSearch from '../components/PostListSearch';
