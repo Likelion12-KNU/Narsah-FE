@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Bar from '../components/Bar';
-import Filter from '../components/Filter';
 import "../style/JobSearchPage.css";
 import jobSearchImg from "../img/job_search.png";
 import writeImg from "../img/pencil.png";
