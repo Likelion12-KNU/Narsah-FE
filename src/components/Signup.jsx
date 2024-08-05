@@ -27,6 +27,7 @@ function Signup() {
                 if (response.ok) {
                     navi("/login");
                     console.log(response);
+                    console.log("체크");
                 } else {
                     throw new Error('Network response was not ok.');
                 }
