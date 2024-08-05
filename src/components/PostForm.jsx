@@ -20,8 +20,8 @@ function PostForm({ author_name, type }) {
     const handlePostForm = async (e) => {
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
         try {
-            // await axios.post(`${baseUrl}/api/board/jobposting/create`, {
-                await axios.post(`${baseUrl}/post`, {
+            await axios.post(`${baseUrl}/api/board/jobposting/create`, {
+                // await axios.post(`${baseUrl}/post`, {
                 title: title,
                 contents: contents,
                 boardTag: "jobPosting"
