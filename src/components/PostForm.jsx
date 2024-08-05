@@ -25,7 +25,7 @@ function PostForm({ author_name, type }) {
                 title: title,
                 contents: contents,
                 boardTag: "jobPosting"
-            });
+            }, {withCredentials: true});
             console.log("post successful");
             navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
         } catch (err) {
