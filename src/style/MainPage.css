@@ -129,6 +129,7 @@
 }
 
 .mainPage>.yellow>.nav>.navElement:nth-child(1) {
+    border-color: #F3FEB8;
     background-color: #F3FEB8;
     color: #FFB22C;
 }
