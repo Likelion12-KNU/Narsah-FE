@@ -46,8 +46,7 @@ function MainPage() {
             {
                 method: "POST",
                 withCredentials: 'include',
-                headers: { "Content-Type": "application/json" },
-                body: {}
+                headers: { "Content-Type": "application/json" }
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
