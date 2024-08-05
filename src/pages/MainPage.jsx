@@ -45,19 +45,18 @@ function MainPage() {
         fetch(`${baseUrl}/api/auth/logout`,
             {
                 method: "POST",
-                withCredentials: 'include',
-                headers: { "Content-Type": "application/json" },
-                body: {}
+                credentials: 'include',
+                headers: { "Content-Type": "application/json" }
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
-                    setIsLoggedIn(false);
                     return response.json();
                 } else {
                     throw new Error('Not logged in');
                 }
             }).then(jsonData => {
                 setUser("");
+                setIsLoggedIn(false);
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });
