@@ -34,7 +34,7 @@ function MainPage() {
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });
-    } ,[]);
+    }, []);
 
     const handleSearch = (event) => {
         event.preventDefault();
@@ -85,7 +85,7 @@ function MainPage() {
                 <div className='nav'>
                     {isLoggedIn ? (
                         <>
-                            <button className='navElement' onClick={handleLogout}>
+                            <button className='navElement logoutButton' onClick={handleLogout}>
                                 LOG OUT
                             </button>
                             <Link className='navElement' to="/user">
@@ -111,14 +111,14 @@ function MainPage() {
             </div>
             <div className='jobNav'>
                 <Link className='jobElement' to="/jobOpening">
-                    <img className='icon' src={jobOpeningImg} alt="Job Opening"/>
+                    <img className='icon' src={jobOpeningImg} alt="Job Opening" />
                     <p>간병인 구하기</p>
-                    <img className='linkImg' src={linkImg} alt="Link"/>
+                    <img className='linkImg' src={linkImg} alt="Link" />
                 </Link>
                 <Link className='jobElement' to="/jobSearch">
-                    <img className='icon' src={jobSearchImg} alt="Job Search"/>
+                    <img className='icon' src={jobSearchImg} alt="Job Search" />
                     <p>환자 찾기</p>
-                    <img className='linkImg' src={linkImg} alt="Link"/>
+                    <img className='linkImg' src={linkImg} alt="Link" />
                 </Link>
             </div>
         </div>
