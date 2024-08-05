@@ -127,12 +127,12 @@
 .mainPage>.yellow>.nav>.navElement:hover {
     transform: scale(1.2);
 }
-/* 
-.mainPage>.yellow>.nav>.navElementLogoutButton {
+
+.mainPage>.yellow>.nav>.navElement.logoutButton {
     background-color: #F3FEB8; 
     color: #FFB22C; 
     font-size: 17px;
-} */
+}
 
 .mainPage>.yellow>.nav>.navElement:nth-child(1) {
     background-color: #F3FEB8;
