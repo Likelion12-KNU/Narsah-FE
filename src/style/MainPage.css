@@ -128,7 +128,7 @@
     transform: scale(1.2);
 }
 
-.mainPage>.yellow>.nav>.navElement.logoutButton {
+.mainPage>.yellow>.nav>.navElementLogoutButton {
     background-color: #F3FEB8; 
     color: #FFB22C; 
     font-size: 17px;
