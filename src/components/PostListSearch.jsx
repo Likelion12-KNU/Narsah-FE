@@ -12,17 +12,10 @@ function PostListSearch({query}) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`${baseUrl}/api/board/jobsearch/lists`, {
-                    params: {
-                        howMany: 100,
-                        pageNum: 0
-                },
+                const response = await axios.get(`${baseUrl}/api/post/gujik/list`, {
                 withCredentials: true, // 자격 증명 포함
                 headers: {
-                    'Accept-Language': 'ko-KR',
-                    'Accept': '*/*',
-                    'Origin': 'http://nurspace-narsha.duckdns.org',
-                    'Referer': 'http://nurspace-narsha.duckdns.org/',
+                    'Content-Type': 'application/json'
                 }
             });
             setPosts(response.data);
@@ -50,7 +43,8 @@ function PostListSearch({query}) {
     return (
         <div className='postList'>
             {filteredPosts.map((post) => (
-                <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.contents} />
+                // createdAt, imageUrl props 제출 가능
+                <Post key={post.id} id={post.id} title={post.title} content={post.content} author_name={post.authorName} />
             ))}
         </div>
     );

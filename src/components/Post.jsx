@@ -5,6 +5,7 @@ import linkImg from "../img/link.png"
 import "../style/Post.css"
 
 function Post({ id, author_name, title, content }) {
+    // route -> author의 userprofile로 이동
     return (
         <Link className='post' to={`/jobOpening/post?q=${id}`}>
             <div className='title'>

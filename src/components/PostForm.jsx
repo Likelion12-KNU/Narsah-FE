@@ -20,11 +20,11 @@ function PostForm({ author_name, type }) {
     const handlePostForm = async (e) => {
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
         try {
-            await axios.post(`${baseUrl}/api/board/jobposting/create`, {
+            await axios.post(`${baseUrl}/api/post/guin/create`, {
                 // await axios.post(`${baseUrl}/post`, {
                 title: title,
-                contents: contents,
-                boardTag: "jobPosting"
+                content: contents,
+                image: "string"
             }, {withCredentials: true});
             console.log("post successful");
             navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
