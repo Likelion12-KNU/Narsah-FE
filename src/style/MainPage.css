@@ -128,10 +128,17 @@
     transform: scale(1.2);
 }
 
+.mainPage>.yellow>.nav>.navElement.logoutButton {
+    background-color: #F3FEB8; 
+    color: #FFB22C; 
+    border: none;
+}
+
 .mainPage>.yellow>.nav>.navElement:nth-child(1) {
     border-color: #F3FEB8;
     background-color: #F3FEB8;
     color: #FFB22C;
+    border: none;
 }
 
 .mainPage>.yellow>.nav>.navElement:nth-child(2) {

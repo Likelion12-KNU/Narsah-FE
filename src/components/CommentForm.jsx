@@ -16,7 +16,7 @@ function CommentForm({ post_id , commentAdd}) {
         try {
             const response = await axios.post(`${baseUrl}/api/comment`, {
                 post_id: post_id,
-                author_name: '익명',
+                // author_name: '익명',
                 content: comment
             });
             commentAdd(re.data); // 상위 컴포넌트(PostPage)로 추가된 댓글의 정보를 전달
