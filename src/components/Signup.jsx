@@ -10,7 +10,8 @@ function Signup() {
     const navi = useNavigate();
 
     const handleConfirm = (e) => {
-        e.preventDefault();        
+        e.preventDefault();   
+        console.log("되나염");
 
         if (id !== '' && password !== '' && password === passwordConfirm) {
             fetch(`${baseUrl}/api/auth/register`,
@@ -24,6 +25,7 @@ function Signup() {
                     })
                 }
             ).then(response => {
+                console.log(response);
                 if (response.ok) {
                     navi("/login");
                     console.log(response);
