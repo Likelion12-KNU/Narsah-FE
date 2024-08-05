@@ -6,6 +6,7 @@ import "../style/JobSearchPage.css";
 import PostList from '../components/PostList';
 import jobSearchImg from "../img/job_search.png";
 import writeImg from "../img/pencil.png";
+import PostListSearch from '../components/PostListSearch';
 
 function JobSearchPage() {
     return (
@@ -16,14 +17,11 @@ function JobSearchPage() {
                     <img src={jobSearchImg} alt="Job Search"/>
                     <h1>환자 찾기</h1>
                 </div>
-                <Filter/>
+                <PostListSearch query={""}/>
             </div>
             <Link to='/jobOpening/newPost'>
                 <img src={writeImg} alt="New Post"/>
             </Link>
-            <div className='content'>
-                {/* <Filter /> */}
-            </div>
         </div>
     );
 }
