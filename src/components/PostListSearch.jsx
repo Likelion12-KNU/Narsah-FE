@@ -14,16 +14,9 @@ function PostListSearch({query}) {
         const fetchPosts = async () => {
             try {
                 const response = await axios.get(`${baseUrl}/api/post/gujik/list`, {
-                    params: {
-                        howMany: 100,
-                        pageNum: 0
-                },
                 withCredentials: true, // 자격 증명 포함
                 headers: {
-                    'Accept-Language': 'ko-KR',
-                    'Accept': '*/*',
-                    'Origin': 'http://nurspace-narsha.duckdns.org',
-                    'Referer': 'http://nurspace-narsha.duckdns.org/',
+                    'Content-Type': 'application/json'
                 }
             });
             setPosts(response.data);
@@ -51,7 +44,8 @@ function PostListSearch({query}) {
     return (
         <div className='postList'>
             {filteredPosts.map((post) => (
-                <Post key={post.id} id={post.id} author_name={post.authorName} title={post.title} content={post.contents} />
+                // createdAt, imageUrl props 제출 가능
+                <Post key={post.id} id={post.id} title={post.title} content={post.content} author_name={post.authorName} profileImg={post.imageUrl} code={1}/>
             ))}
         </div>
     );

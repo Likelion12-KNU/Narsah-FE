@@ -73,28 +73,31 @@ function PostPage() {
 //     }
 // };
 
-
+    // 매커니즘 좀 바꾸자 -> 바로 프로필 나오게?
     useEffect(() => {
         const fetchPostAndComments = async () => {
             try {
-                const responsePost = await axios.get(`${baseUrl}/api/board/jobposting/${postId}`);
+                const responsePost = await axios.get(`${baseUrl}/api/post/guin/${postId}`);
                 if (responsePost.data.length > 0) {
                     const postData = responsePost.data[0];
                     setPost(postData);
 
-                    const responseComment = await axios.get(`${baseUrl}/api/comment/${postId}`);
-                    if (responseComment.data.length > 0) {
-                        setComments(responseComment.data);
-                    } else {
-                        setComments([]);
-                    }
+                    // comment 삭제
+                    // const responseComment = await axios.get(`${baseUrl}/api/comment/${postId}`);
+                    // if (responseComment.data.length > 0) {
+                    //     setComments(responseComment.data);
+                    // } else {
+                    //     setComments([]);
+                    // }
 
-                    const responseAuthor = await axios.get(`${baseUrl}/JobCard?author=${postData.author_name}`);
-                    if (responseAuthor.data.length > 0) {
-                        setAuthor(responseAuthor.data[0]);
-                    } else {
-                        console.log("No such author");
-                    }
+
+                    /* 여기 확인 요망 */
+                    // const responseAuthor = await axios.get(`${baseUrl}/JobCard?author=${postData.author_name}`);
+                    // if (responseAuthor.data.length > 0) {
+                    //     setAuthor(responseAuthor.data[0]);
+                    // } else {
+                    //     console.log("No such author");
+                    // }
                 } else {
                     setPost(null);
                 }
@@ -111,13 +114,7 @@ function PostPage() {
 
     const delPost = async () => {
         try {
-            const responseComments = await axios.get(`${baseUrl}/api/comment/${postId}`);
-            const deleteCommentsPromises = responseComments.data.map(comment =>
-                axios.delete(`${baseUrl}/api/comment/${comment.id}`)
-            );
-            await Promise.all(deleteCommentsPromises);
-
-            await axios.delete(`${baseUrl}/api/board/${postId}`);
+            await axios.delete(`${baseUrl}/api/post/guin/delete/${postId}`);
             navigate("/jobOpening");
             console.log("post and comments delete successful");
         } catch (error) {

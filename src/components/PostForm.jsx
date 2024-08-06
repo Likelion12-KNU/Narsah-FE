@@ -19,6 +19,23 @@ function PostForm({ type }) {
     };
 
     const handlePostForm = async (e) => {
+
+        function formDataToJSON(formData) {
+            const obj = {};
+            formData.forEach((key, value) => {
+                // 기존 키가 이미 존재하는 경우 배열로 변환하여 여러 값을 수용
+                if (obj[key]) {
+                    if (!Array.isArray(obj[key])) {
+                        obj[key] = [obj[key]];
+                    }
+                    obj[key].push(value);
+                } else {
+                    obj[key] = value;
+                }
+            });
+            return obj;
+        }
+
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
 
         if (type == 'guin') {
