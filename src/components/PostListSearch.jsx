@@ -44,7 +44,7 @@ function PostListSearch({query}) {
         <div className='postList'>
             {filteredPosts.map((post) => (
                 // createdAt, imageUrl props 제출 가능
-                <Post key={post.id} id={post.id} title={post.title} content={post.content} author_name={post.authorName} />
+                <Post key={post.id} id={post.id} title={post.title} content={post.content} author_name={post.authorName} profileImg={post.imageUrl} code={1}/>
             ))}
         </div>
     );

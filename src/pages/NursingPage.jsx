@@ -2,6 +2,7 @@
 import Bar from '../components/Bar';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { baseUrl } from '../config/const';
 import axios from 'axios';
 import profileImg from "../img/user_orange.png";
 import "../style/NursingPage.css";
@@ -16,7 +17,7 @@ function NursingPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const re = await axios.get(`http://localhost:3000/nurse?name=${nurseName}`);
+                const re = await axios.get(`${baseUrl}/nurse?name=${nurseName}`);
                 if (re.data.length > 0) {
                     setNurse(re.data[0]);
                     console.log("get successful");

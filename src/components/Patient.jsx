@@ -32,9 +32,14 @@ function Patient({
     const handleApp = async () => {
         // 백엔드 연동시 세션에서 유저 정보를 받아와 
         // 유저가 "환자"일 시 alert("권한이 없습니다") 실행
+        // 유저가 자신이라면 버튼 호출 X, 프로필 수정 버튼으로 변경
         navigate("/application", { state: appState });
     };
 
+    const handleMod = async () => {
+        //수정 요청
+    }
+    
     return (
         <div className="detailCard">
             <div className="userHeader">

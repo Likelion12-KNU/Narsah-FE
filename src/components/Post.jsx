@@ -4,10 +4,13 @@ import profileImg from "../img/profile.png"
 import linkImg from "../img/link.png"
 import "../style/Post.css"
 
-function Post({ id, author_name, title, content }) {
+// code 0: guin, code 1: gugik
+function Post({ id, author_name, title, content, profileImg, code }) {
     // route -> author의 userprofile로 이동
+    const condUrl = (code == 0) ? (`/offerProfile=${author_name}`) : (`/nurseProfile?q=${author_name}`);
+    
     return (
-        <Link className='post' to={`/jobOpening/post?q=${id}`}>
+        <Link className='post' to={condUrl}>
             <div className='title'>
                 <img src={profileImg} />
                 <div className='titleCover'>
@@ -18,7 +21,7 @@ function Post({ id, author_name, title, content }) {
             <div className='postContent'>
                 <pre>{content}</pre>
             </div>
-            <p>댓글</p>
+            {/* <p>댓글</p> */}
             <img src={linkImg} />
         </Link>
     )
