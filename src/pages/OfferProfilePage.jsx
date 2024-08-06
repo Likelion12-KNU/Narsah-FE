@@ -6,8 +6,9 @@ import profileImg from "../img/profile.png";
 import delImg from "../img/del.png";
 import Bar from '../components/Bar';
 import Loading from '../components/Loading';
+import { baseUrl } from '../config/const';
 
-const OfferProfilePage = () => {
+const OfferProfilePage = ({id}) => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const offerId = queryParams.get('q');
@@ -20,7 +21,7 @@ const OfferProfilePage = () => {
   useEffect(() => {
     const fetchOffer = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/offer?id=${offerId}`);
+        const response = await axios.get(`${baseUrl}/api/post/guin/${id}/author`);
         if (response.data.length > 0) {
           setOffer(response.data[0]);
         } else {

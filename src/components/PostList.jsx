@@ -19,10 +19,6 @@ function PostList({ query }) {
                     withCredentials: true, // 자격 증명 포함
                     headers: {
                         'Content-Type': 'application/json'
-                        // 'Accept-Language': 'ko-KR',
-                        // 'Accept': '*/*',
-                        // 'Origin': 'http://nurspace-narsha.duckdns.org',
-                        // 'Referer': 'http://nurspace-narsha.duckdns.org/',
                     }
                 });
                 setPosts(response.data);
@@ -50,8 +46,6 @@ function PostList({ query }) {
     return (
         <div className='postList'>
             {filteredPosts.map((post) => (
-                // createdAt, imageUrl props 제출 가능
-                // code == 0일때 구인
                 <Post key={post.id} id={post.id} title={post.title} content={post.content} author_name={post.authorName} profileImg={post.imageUrl} code={0}/>
             ))}
         </div>

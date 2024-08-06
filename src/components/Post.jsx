@@ -25,7 +25,7 @@ function Post({ id, author_name, title, content, profileImg, code }) {
 
     return (
         <>
-        <Link className='post' to={condUrl}>
+        <Link className='post' to={condUrl} state={id}>
             <div className='title'>
                 <img src={profileImg} />
                 <div className='titleCover'>
@@ -36,10 +36,9 @@ function Post({ id, author_name, title, content, profileImg, code }) {
             <div className='postContent'>
                 <pre>{content}</pre>
             </div>
-            {/* <p>댓글</p> */}
             <img src={linkImg} />
         </Link>
-        <button className='delbtn' onClick={delPost} >삭제</button>
+        {/* <button className='delbtn' onClick={delPost} >삭제</button> */}
         
         </>
     )
