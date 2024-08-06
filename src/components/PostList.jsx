@@ -47,7 +47,7 @@ function PostList({ query }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`${baseUrl}/api/board/jobposting/lists`, {
+                const response = await axios.get(`${baseUrl}/api/post/guin/list`, {
                     params: {
                         howMany: 100,
                         pageNum: 0
