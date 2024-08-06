@@ -1,11 +1,13 @@
 import { useState } from 'react'
+import axios from 'axios';
 import { json, Link, Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom'
 import { baseUrl } from '../config/const';
+import "../style/Login.css";
 
 // dummy
 import { tUser } from '../config/tmpUser'
 
-const Login = () => {
+const Login_caregiver = () => {
     const [userid, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const navi = useNavigate();
@@ -13,39 +15,37 @@ const Login = () => {
     // 더미 데이터(tUser) 사용. BE와 연동시 수정
     const handleConfirm = async (e) => {
         e.preventDefault();
-        await fetch(`${baseUrl}/api/auth/login`,
-            {
-                method: "POST",
+        try {
+            const response = await axios.post(`${baseUrl}/api/auth/caregiver/login`, {
+                account: userid,
+                password: password
+            }, {
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    email: userid,
-                    password: password
-                }),
-                credentials: "include"
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Network response was not ok.');
-                }
-            }).then(jsonData => {
-                console.log(jsonData);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
+                withCredentials: true
             });
 
+            if (response.status === 200) {
+                console.log("login successful");
+                console.log(response);
+                const jsonData = response.data;
+                console.log(jsonData);
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        } catch (error) {
+            console.error("Axios error: ", error);
+        }
         // main으로 이동
         navi('/');
         window.location.reload()    // reload
-    
+
     }
 
 
     return (
         <div className='content'>
             <form className='loginForm'>
-                <h1>LOG IN</h1>
+                <h1>간병인 로그인</h1>
                 <input
                     type='text'
                     placeholder='ID'
@@ -68,4 +68,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Login_caregiver;

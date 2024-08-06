@@ -1,0 +1,37 @@
+.signupMenu {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    padding-right: 100px;
+    padding-left: 100px;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.signupMenu>.select {
+    display: inline-block;
+    cursor: pointer;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    box-shadow: 20px 20px #F3FEB8;
+    border: solid 2px #FFB22C;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 40px;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.signupMenu>.select:hover {
+    transform: scale(1.05);
+}
+
+.signupMenu>.select>p {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 0px;
+    color: #FFB22C;
+}

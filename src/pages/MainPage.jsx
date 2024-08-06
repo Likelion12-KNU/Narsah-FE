@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../style/MainPage.css";
 import leafImg from "../img/leaf.png";
-import { baseUrl } from "../config/const"
+import { baseUrl } from "../config/const";
 import jobOpeningImg from "../img/job_opening.png";
 import jobSearchImg from '../img/job_search.png';
 import linkImg from "../img/link.png";
@@ -15,25 +15,19 @@ function MainPage() {
 
     useEffect(() => {
         console.log(document.cookie);
-        fetch(`${baseUrl}/api/auth/check-session`,
-            {
-                method: "GET",
-                credentials: 'include',
-                headers: { "Content-Type": "application/json" }
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Not logged in');
-                }
-            }).then(jsonData => {
-                setUser(jsonData.email);
+        fetch(`${baseUrl}/api/user/me`, {
+            method: "POST",
+            credentials: 'include',
+            headers: { "Content-Type": "application/json" }
+        }).then(response => {
+            if (response.status === 200) {
                 setIsLoggedIn(true);
-                console.log(jsonData);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
-            });
+            } else {
+                throw new Error('Not logged in');
+            }
+        }).catch(error => {
+            console.error("Fetch error: ", error);
+        });
     }, []);
 
     const handleSearch = (event) => {
@@ -42,25 +36,21 @@ function MainPage() {
     };
 
     const handleLogout = () => {
-        fetch(`${baseUrl}/api/auth/logout`,
-            {
-                method: "POST",
-                credentials: 'include',
-                headers: { "Content-Type": "application/json" }
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Not logged in');
-                }
-            }).then(jsonData => {
+        fetch(`${baseUrl}/api/user/logout`, {
+            method: "POST",
+            credentials: 'include',
+            headers: { "Content-Type": "application/json" }
+        }).then(response => {
+            if (response.status === 200) {
                 setUser("");
                 setIsLoggedIn(false);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
-            });
-        window.location.reload()
+                navigate('/');
+            } else {
+                throw new Error('Not logged in');
+            }
+        }).catch(error => {
+            console.error("Fetch error: ", error);
+        });
     };
 
     return (
