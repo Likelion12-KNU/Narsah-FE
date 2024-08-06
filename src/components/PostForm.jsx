@@ -18,14 +18,42 @@ function PostForm({ author_name, type }) {
     };
 
     const handlePostForm = async (e) => {
+
+        function formDataToJSON(formData) {
+            const obj = {};
+            formData.forEach((key, value) => {
+                // 기존 키가 이미 존재하는 경우 배열로 변환하여 여러 값을 수용
+                if (obj[key]) {
+                    if (!Array.isArray(obj[key])) {
+                        obj[key] = [obj[key]];
+                    }
+                    obj[key].push(value);
+                } else {
+                    obj[key] = value;
+                }
+            });
+            return obj;
+        }
+
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
         try {
-            await axios.post(`${baseUrl}/api/post/guin/create`, {
-                // await axios.post(`${baseUrl}/post`, {
+            // axios에서 FormData로 줘야 함.
+            const postData = {
                 title: title,
-                content: contents,
-                image: "string"
-            }, {withCredentials: true});
+                content: contents
+            };
+            const guin = new FormData();
+            const json = JSON.stringify(postData);
+            const blob = new Blob([json], { type: 'application/json' });
+            guin.append('guin', blob)
+
+            const res = await axios.post(`${baseUrl}/api/post/guin/create`, guin, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            console.log(res);
+
             console.log("post successful");
             navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
         } catch (err) {
