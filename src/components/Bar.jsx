@@ -14,29 +14,26 @@ function Bar() {
     };
 
     useEffect(() => {
-        fetch(`${baseUrl}/api/auth/check-session`,
-        // fetch(`${baseUrl}/LoggedIn`,
+        fetch(`${baseUrl}/api/user/me`,
+            // fetch(`${baseUrl}/LoggedIn`,
             {
-                method: "GET",
+                method: "POST",
                 credentials: 'include',
                 headers: { "Content-Type": "application/json" }
             }).then(response => {
-                if (response.ok) {
+                if (response.status === 200) {
                     console.log(response);
-                    return response.json();
+                    setIsLoggedIn(true);
                 } else {
                     throw new Error('Not logged in');
                 }
-            }).then(jsonData => {
-                setUser(jsonData.email);
-                setIsLoggedIn(true);
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });
     }, []);
 
     const handleLogout = () => {
-        fetch(`${baseUrl}/api/auth/logout`,
+        fetch(`${baseUrl}/api/user/logout`,
             {
                 method: "POST",
                 credentials: 'include',
@@ -44,13 +41,11 @@ function Bar() {
             }).then(response => {
                 if (response.ok) {
                     console.log(response);
-                    return response.json();
+                    setUser("");
+                    setIsLoggedIn(false);
                 } else {
                     throw new Error('Not logged in');
                 }
-            }).then(jsonData => {
-                setUser("");
-                setIsLoggedIn(false);
             }).catch(error => {
                 console.error("Fetch error: ", error);
             });

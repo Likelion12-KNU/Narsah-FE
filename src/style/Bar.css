@@ -80,6 +80,8 @@
     color: white;
     box-shadow: 10px 10px #F3FEB8;
     transition: transform 0.3s ease-out;
+    outline: none;
+    border: none;
 }
 
 /* navElement 애니메이션 */
