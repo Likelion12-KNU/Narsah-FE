@@ -18,7 +18,7 @@ function JobOpeningPage() {
         </div>
         <PostList query=''/>
       </div>
-      <Link to='/jobOpening/newPost'><img src={writeImg}/></Link>
+      <Link to='/jobOpening/newGuinPost'><img src={writeImg}/></Link>
     </div>
   )
 }

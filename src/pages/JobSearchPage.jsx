@@ -17,7 +17,7 @@ function JobSearchPage() {
                 </div>
                 <PostListSearch query={""}/>
             </div>
-            <Link to='/jobOpening/newPost'>
+            <Link to='/jobOpening/newGujikPost'>
                 <img src={writeImg} alt="New Post"/>
             </Link>
         </div>

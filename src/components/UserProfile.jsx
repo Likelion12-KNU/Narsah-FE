@@ -6,35 +6,7 @@ import { baseUrl } from '../config/const';
 import "../style/UserProfile.css"
 
 // code : 일반 유저 -> 0, 간병인 -> 1
-function UserProfile({name, userid, code}) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 관리하는 상태 변수
-    const [user, setUser] = useState("");
-
-    useEffect(() => {
-        fetch(`${baseUrl}/api/auth/check-session`,
-            {
-                method: "GET",
-                credentials: 'include',
-                headers: { "Content-Type": "application/json" }
-            }).then(response => {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } else {
-                    throw new Error('Not logged in');
-                }
-            }).then(jsonData => {
-                setUser(jsonData.email);
-                setIsLoggedIn(true);
-                console.log(jsonData);
-            }).catch(error => {
-                console.error("Fetch error: ", error);
-            });
-    }, []);
-
-    if (!isLoggedIn) {
-        return <div>로그인해주세요</div>;
-    }
+function UserProfile({user}) {
 
     return (
         <div className="profile">
@@ -42,14 +14,14 @@ function UserProfile({name, userid, code}) {
                 <img src={userOrange} alt="user" className="userIcon" />
                 <div className="userInfo">
                     {
-                        code === 0 ? (
-                            <h2><strong>{name}</strong> 님</h2>
+                        user.code == 0 ? (
+                            <h2><strong>{user.name}</strong> 님</h2>
                         ) : (
-                            <h2>간병사 <strong>{name}</strong> 님</h2>
+                            <h2>간병인 <strong>{user.name}</strong> 님</h2>
                         )
                     }
                     
-                    <p>{userid}</p>
+                    <p>{user.account}</p>
                 </div>
             </div>
         </div>

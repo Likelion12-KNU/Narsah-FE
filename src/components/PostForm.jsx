@@ -4,9 +4,10 @@ import { baseUrl } from '../config/const';
 import "../style/PostForm.css";
 import axios from 'axios';
 
-function PostForm({ author_name, type }) {
+function PostForm({ type }) {
     const [title, setTitle] = useState('');
     const [contents, setContents] = useState('');
+    const [image, setImage] = useState(null);
     const navigate = useNavigate();
 
     const handleTitleChange = (e) => {
@@ -19,43 +20,89 @@ function PostForm({ author_name, type }) {
 
     const handlePostForm = async (e) => {
         e.preventDefault(); // post 요청 시 페이지 새로고침을 막습니다
-        try {
-            await axios.post(`${baseUrl}/api/board/jobposting/create`, {
-                // await axios.post(`${baseUrl}/post`, {
+
+        if (type == 'guin') {
+            const formData = new FormData();
+            const postdata = {
                 title: title,
-                contents: contents,
-                boardTag: "jobPosting"
-            }, {withCredentials: true});
-            console.log("post successful");
-            navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
-        } catch (err) {
-            console.log("fail to post: ", err.message);
+                content: contents
+            };
+            const json = JSON.stringify(postdata);
+            const blob = new Blob([json], { type: 'application/json' });
+            formData.append('guin', blob);
+            if (image) {
+                formData.append('image', image);
+            }
+
+            try {
+                await axios.post(`${baseUrl}/api/post/${type}/create`,
+                    formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    withCredentials: true
+                });
+                console.log("Post successful");
+                navigate("/jobOpening"); // post 성공시 구인 게시물 페이지로 이동
+            } catch (err) {
+                console.log("Failed to post: ", err.message);
+            }
+        } else if (type == 'gujik') {
+            const formData = new FormData();
+            const postdata = {
+                title: title,
+                content: contents
+            };
+            const json = JSON.stringify(postdata);
+            const blob = new Blob([json], { type: 'application/json' });
+            formData.append('gujik', blob);
+            if (image) {
+                formData.append('image', image);
+            }
+
+            try {
+                await axios.post(`${baseUrl}/api/post/${type}/create`,
+                    formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    withCredentials: true
+                });
+                console.log("Post successful");
+                navigate("/jobSearch"); // post 성공시 구인 게시물 페이지로 이동
+            } catch (err) {
+                console.log("Failed to post: ", err.message);
+            }
         }
     };
 
-    return (
-        <form className='postForm'>
-            <h1>게시물 작성</h1>
-            <div className="formTitle">
-                <label htmlFor='title'>Title</label>
-                <input
-                    type='text'
-                    id='title'
-                    value={title}
-                    onChange={handleTitleChange}
-                    placeholder='제목을 입력하세요' />
-            </div>
-            <div className='formBody'>
-                <label htmlFor='contents'>Content</label>
-                <textarea
-                    id='contents'
-                    onChange={handleContentsChange}
-                    placeholder='내용을 입력하세요'
-                    value={contents} />
-            </div>
-            <input type='submit' value="작성" onClick={handlePostForm} />
-        </form>
-    );
-};
+        return (
+            <form className='postForm' onSubmit={handlePostForm}>
+                {type === 'guin' ? (<h1>간병인 구해요</h1>) : (<h1>환자 찾기</h1>)}
+                <div className="formTitle">
+                    <label htmlFor='title'>Title</label>
+                    <input
+                        type='text'
+                        id='title'
+                        value={title}
+                        onChange={handleTitleChange}
+                        placeholder='제목을 입력하세요' />
+                </div>
+                <div className='formBody'>
+                    <label htmlFor='contents'>Content</label>
+                    <textarea
+                        id='contents'
+                        onChange={handleContentsChange}
+                        placeholder='내용을 입력하세요'
+                        value={contents} />
+                    <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setImage(e.target.files[0])} />
+                </div>
+                <input type='submit' value="작성" />
+            </form>
+        );
+    };
 
-export default PostForm;
+    export default PostForm;

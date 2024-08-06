@@ -3,6 +3,7 @@ import Post from './Post';
 import { baseUrl } from '../config/const';
 import "../style/PostList.css"
 import axios from 'axios';
+import Loading from './Loading';
 
 function PostListSearch({query}) {
     const [posts, setPosts] = useState([]);
@@ -12,7 +13,7 @@ function PostListSearch({query}) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`${baseUrl}/api/board/jobsearch/lists`, {
+                const response = await axios.get(`${baseUrl}/api/post/gujik/list`, {
                     params: {
                         howMany: 100,
                         pageNum: 0
@@ -37,10 +38,10 @@ function PostListSearch({query}) {
     }, []);
 
     // search filter
-    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
+    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query) || post.authorName.includes(query)));
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
 
     if (error) {
@@ -50,7 +51,7 @@ function PostListSearch({query}) {
     return (
         <div className='postList'>
             {filteredPosts.map((post) => (
-                <Post key={post.id} id={post.id} author_name={post.author_name} title={post.title} content={post.contents} />
+                <Post key={post.id} id={post.id} author_name={post.authorName} title={post.title} content={post.contents} />
             ))}
         </div>
     );
