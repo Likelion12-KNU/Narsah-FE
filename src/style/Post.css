@@ -89,3 +89,9 @@
     bottom: -10px;
     right: -10px;
 }
+
+.post>.delbtn {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}

@@ -114,12 +114,6 @@ function PostPage() {
 
     const delPost = async () => {
         try {
-            // const responseComments = await axios.get(`${baseUrl}/api/comment/${postId}`);
-            // const deleteCommentsPromises = responseComments.data.map(comment =>
-            //     axios.delete(`${baseUrl}/api/comment/${comment.id}`)
-            // );
-            // await Promise.all(deleteCommentsPromises);
-
             await axios.delete(`${baseUrl}/api/post/guin/delete/${postId}`);
             navigate("/jobOpening");
             console.log("post and comments delete successful");
