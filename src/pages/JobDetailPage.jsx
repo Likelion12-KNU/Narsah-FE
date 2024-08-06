@@ -1,84 +1,111 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../style/JobDetailPage.css";
-import Patient from '../components/Patient';
 import Bar from '../components/Bar';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { baseUrl } from '../config/const';
 
-// // db에 구현
-// const jobDetails = [
-//   {
-//     id: 1,
-//     name: "홍*동",
-//     license: "有",
-//     affiliation: "無",
-//     location: "서울 성북구",
-//     age: 53,
-//     height: 170,
-//     weight: 75,
-//     gender: "남성",
-//     careLocation: "강원대학교병원",
-//     carePeriod: "2024.08.01 부터 2024.08.20 까지",
-//     diagnosis: "감기몸살",
-//     hospitalizationPurpose: "검사",
-//     roomType: "일반실",
-//     mobilityStatus: "자가 보행",
-//     assistiveDevices: "없음",
-//     medications: "없음",
-//     details: "간병 경력이 있는 사람 구인"
-//   },
-//   {
-//     id: 2,
-//     name: "김*신",
-//     license: "有",
-//     affiliation: "無",
-//     location: "서울 노원구",
-//     age: 39,
-//     height: 165,
-//     weight: 55,
-//     gender: "남성",
-//     careLocation: "자택",
-//     carePeriod: "2024.08.01 부터 2024.08.20 까지",
-//     diagnosis: "당뇨",
-//     hospitalizationPurpose: "치료",
-//     roomType: "X",
-//     mobilityStatus: "보행 불가능",
-//     assistiveDevices: "없음",
-//     medications: "인슐린",
-//     details: "40대 이하, 간병 유경험자 우대"
-//   },
+function formatDateString(dateString) {
+    if (dateString.length !== 6) {
+        throw new Error('Invalid date format. Expected yymmdd.');
+    }
 
-// ];
+    const year = '20' + dateString.slice(0, 2);
+    const month = dateString.slice(2, 4);
+    const day = dateString.slice(4, 6);
+
+    return `${year}.${month}.${day}`;
+}
 
 function JobDetailPage() {
-  const { id } = useParams();
-  const jobDetail = jobDetails.find(job => job.id === parseInt(id));
+    const location = useLocation();
+    const navigate = useNavigate();
+    const state = location.state || {};
+    const [user, setUser] = useState(null);
 
-  if (!jobDetail) {
-    return <p>해당하는 정보를 찾을 수 없습니다.</p>;
-  }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${baseUrl}/api/post/guin/${state.id}/author`, {
+                    params: {
+                        id: state.id
+                    },
+                    withCredentials: true,
+                    headers: {
+                        'Accept-Language': 'ko-KR',
+                        'Accept': '*/*',
+                        'Origin': 'http://nurspace-narsha.duckdns.org',
+                        'Referer': 'http://nurspace-narsha.duckdns.org/'
+                    }
+                });
+                setUser(response.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, [state.id]);
 
-  return (
-    <div className="jobDetailPage">
-      <Bar />
-      <div className='content'>
-        <Patient
-          id={jobDetail.id}
-          name={jobDetail.name}
-          age={jobDetail.age}
-          height={jobDetail.height}
-          weight={jobDetail.weight}
-          gender={jobDetail.gender}
-          careLocation={jobDetail.careLocation}
-          carePeriod={jobDetail.carePeriod}
-          diagnosis={jobDetail.diagnosis}
-          hospitalizationPurpose={jobDetail.hospitalizationPurpose}
-          roomType={jobDetail.roomType}
-          mobilityStatus={jobDetail.mobilityStatus}
-          assistiveDevices={jobDetail.assistiveDevices}
-          medications={jobDetail.medications}
-        />
-      </div>
-    </div>
-  );
+    const handleApp = () => {
+        
+    };
+
+    return (
+        <div className="jobDetailPage">
+            <Bar />
+            <div className='content'>
+                <div className="detailCard">
+                    {user && (
+                        <>
+                            <div className="userHeader">
+                                <div className="userInfo">
+                                    <img src={userOrange} alt="user" className="userIcon" />
+                                    <div><h2>{user.name} 환자</h2></div>
+                                </div>
+                                <div className="userAttributes">
+                                    <ul>
+                                        <li><span>나이</span> <strong>{user.age}</strong> 세</li>
+                                        <li><span>키</span> <strong>{user.height}</strong> cm</li>
+                                        <li><span>몸무게</span> <strong>{user.weight}</strong> kg</li>
+                                        <li><span>성별</span> {user.gender === 0 ? (<strong>남자</strong>) : (<strong>여자</strong>)}</li>
+                                        <li><span>장소</span> <strong>{user.location}</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="detailInfo">
+                                <h3>세부 정보</h3>
+                                <div className="detailItem">
+                                    <span>요구 간병 기간</span>
+                                    <strong>
+                                        {formatDateString(user.patientMedRecord.startDay)} ~ {formatDateString(user.patientMedRecord.endDay)}
+                                    </strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>진단명</span> <strong>{user.patientMedRecord.diagnosis}</strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>입원 목적</span> <strong>{user.patientMedRecord.hospitalize}</strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>병실 유형</span> <strong>{user.patientMedRecord.ward}</strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>거동 상태</span> <strong>{user.patientMedRecord.movement}</strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>보조 장치 여부</span> <strong>{user.patientMedRecord.device}</strong>
+                                </div>
+                                <div className="detailItem">
+                                    <span>복용 약</span> <strong>{user.patientMedRecord.drug}</strong>
+                                </div>
+                            </div>
+                            <button onClick={handleApp}>간병 신청</button>
+                        </>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default JobDetailPage;
