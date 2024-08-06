@@ -5,6 +5,7 @@ import "../style/OfferProfilePage.css";
 import profileImg from "../img/profile.png";
 import delImg from "../img/del.png";
 import Bar from '../components/Bar';
+import Loading from '../components/Loading';
 
 const OfferProfilePage = () => {
   const location = useLocation();
@@ -47,6 +48,10 @@ const OfferProfilePage = () => {
 
   if (error) {
     return <div>Error: {error}</div>;
+  }
+
+  if(loading) {
+    return <Loading/>;
   }
 
   return (

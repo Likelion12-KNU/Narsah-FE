@@ -3,6 +3,7 @@ import Post from './Post';
 import { baseUrl } from '../config/const';
 import "../style/PostList.css"
 import axios from 'axios';
+import Loading from './Loading';
 
 function PostList({ query }) {
     const [posts, setPosts] = useState([]);
@@ -36,10 +37,10 @@ function PostList({ query }) {
     }, []);
 
     // search filter
-    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query)));
+    const filteredPosts = posts.filter((post) => (post.title.includes(query) || post.content.includes(query) || post.authorName.includes(query)));
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
 
     if (error) {
