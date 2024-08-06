@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { baseUrl } from '../config/const';
 import "../style/Signup.css";
 
-function Signup() {
+function Signup_patient() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -25,13 +25,13 @@ function Signup() {
             const formData = new FormData();
             const json = JSON.stringify(caregiverData);
             const blob = new Blob([json], { type: 'application/json' });
-            formData.append('caregiver', blob);
+            formData.append('patient', blob);
             if (profileImage) {
                 formData.append('profileImage', profileImage);
             }
 
             try {
-                const response = await fetch(`${baseUrl}/api/auth/caregiver/register`, {
+                const response = await fetch(`${baseUrl}/api/auth/patient/register`, {
                     method: "POST",
                     body: formData,
                     credentials: 'include' // Include cookies and other credentials
@@ -58,7 +58,7 @@ function Signup() {
 
     return (
         <form className='signupForm' onSubmit={handleConfirm}>
-            <h1>SIGN UP</h1>
+            <h1>환자 회원가입</h1>
             <input
                 type='text'
                 placeholder='ID'
@@ -94,4 +94,4 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default Signup_patient;

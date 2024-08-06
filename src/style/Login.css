@@ -1,0 +1,70 @@
+
+.content>.loginForm {
+    display: block;
+    width: 400px;
+    background-color: #FFB22C;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content>.loginForm>h1 {
+    display: block;
+    text-align: center;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+}
+
+.content>.loginForm>input,
+.content>.loginForm>button {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 10px;
+    background-color: white;
+    color: #FFB22C;
+    border-radius: 20px;
+    width: 300px;
+    border: none;
+    outline: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
+
+.content>.loginForm>input {
+    height: 50px;
+    padding-left: 20px;
+    color: black;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.content>.loginForm>input::placeholder {
+    color: #FFB22C;
+}
+
+.content>.loginForm>button {
+    height: 70px;
+    color: #FFB22C;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.content>.loginForm>a, .content>.loginForm>p {
+    display: inline;
+}
+
+.content>.loginForm>a {
+    text-decoration: none;
+    color: white;
+}

@@ -31,8 +31,8 @@ function App() {
             <Route path="/search" element={<SearchPage/>} />
             <Route path="/jobOpening" element={<JobOpeningPage/>} />
             <Route path="/jobSearch" element={<JobSearchPage/>} />
-            <Route path='/login' element={<LogInPage/>}/>
-            <Route path='/signup' element={<SignUpPage/>}/>
+            <Route path='/login/*' element={<LogInPage/>}/>
+            <Route path='/signup/*' element={<SignUpPage/>}/>
             <Route path='/user/*' element={<UserPage/>}/>
             <Route path='/jobOpening/post' element={<PostPage/>}/>
             <Route path='/job/:id' element={<JobDetailPage/>}/> {/* 상세 정보 페이지 경로 추가 */}
